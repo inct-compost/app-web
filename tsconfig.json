@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2018",
-    "module": "ESNext",
+    "module": "es2015",
     "moduleResolution": "Node",
     "lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
     "esModuleInterop": true,
@@ -18,8 +18,11 @@
     "types": [
       "@nuxt/types",
       "@types/node",
-      "nuxt-supabase",
+      "unplugin-vue2-script-setup/types"
     ]
+  },
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
