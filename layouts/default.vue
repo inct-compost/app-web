@@ -1,7 +1,7 @@
 <template lang="pug">
 div
-  .header My blog navigation bar here
-  Nuxt
+  Header
+  Nuxt.mt-16.mx-auto.p-4
 </template>
 
 <script lang="ts">
@@ -30,6 +30,6 @@ export default defineComponent({
 
 <style lang="scss">
 body {
-  background-color: #F0F0F0;
+  background-color: $white;
 }
 </style>

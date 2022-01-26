@@ -27,11 +27,16 @@ export default {
     "@nuxt/typescript-build",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/composition-api/module",
+    '@nuxtjs/style-resources',
   ],
 
   modules: [
     "@nuxtjs/pwa",
   ],
+
+  styleResources: {
+    scss: ['./assets/scss/color.scss'],
+  },
 
   pwa: {
     manifest: {

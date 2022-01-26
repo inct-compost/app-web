@@ -1,6 +1,5 @@
 <template lang="pug">
-.container.mx-auto
-  h1.text-5xl.py-4 compost-dashboard-app
+.container
   div(v-for="item in events")
     | {{ item }}
   button(
