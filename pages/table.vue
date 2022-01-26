@@ -1,3 +1,4 @@
 <template lang="pug">
-.containar asd
+.containar
+  Header(title="Data Table")
 </template>

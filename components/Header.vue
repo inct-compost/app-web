@@ -1,6 +1,6 @@
 <template lang="pug">
 .header
-  div(class="title md:text-2xl text-base font-semibold") Compost DashBoard
+  div(class="title md:text-2xl text-base font-semibold") {{ title }}
 </template>
 
 <script lang="ts">
@@ -8,6 +8,12 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'Header',
+  props: {
+    title: {
+      type: String,
+      required: true
+    }
+  },
   setup() {
     return {
 

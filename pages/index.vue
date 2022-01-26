@@ -1,12 +1,8 @@
 <template lang="pug">
 .container
-  Header
+  Header(title="DashBoard")
   div(v-for="item in events")
     | {{ item }}
-  button(
-    @click="getEvents()"
-  ).rounded-3xl.bg-red-400
-    p.p-4 Get Events
 </template>
 
 <script lang="ts">
@@ -21,27 +17,25 @@ import useSupabase from "../plugin/supabase"
 
 export default defineComponent({
   setup() {
-    // const data:
+    // const
     const { supabase } = useSupabase()
 
-    // let data: computed data:
+    // let, computed
     let events = ref()
 
-    // methods:
+    // methods
     const getEvents = async () => {
       let { data, error, status } = await supabase.from("sensingData").select("*")
       console.log(data, error, status)
       return data
     }
 
-
-    // life cycle
+    // lifeCycle
     onBeforeMount(async() => {
       events.value = await getEvents()
     })
 
     // other
-    console.log(events)
 
 
     return {

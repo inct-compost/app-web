@@ -13,6 +13,13 @@
             fill="#489384"
           )
         .link-now(v-if="nowPath === item.path")
+  .footer
+    .p-4.w-16.h-16
+      svg(viewBox="0 0 24 24")
+        path(
+          :d="mdiChevronRight"
+          fill="#489384"
+        )
 </template>
 
 <script lang="ts">
@@ -28,6 +35,7 @@ import {
   mdiViewDashboard,
   mdiTable,
   mdiTableBorder,
+  mdiChevronRight,
 } from '@mdi/js';
 
 export default defineComponent({
@@ -69,8 +77,11 @@ export default defineComponent({
     // other
 
     return {
+      mdiChevronRight,
+
       nowPath,
       routeData,
+
       pushRoute,
     }
   },
@@ -89,17 +100,34 @@ export default defineComponent({
 
   background-color: $white;
 
-  .route{
+  .route {
     .link-button {
       & {
         position: relative;
         z-index: 2;
+
         color: $primary;
+        cursor: pointer;
+      }
+
+      &:hover::before {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        width: calc(64px - 24px);
+        height: calc(64px - 24px);
+
+        border-radius: 0.75rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        background-color: rgba(128, 128, 128, 0.2);
       }
     }
 
     .link-now {
-      &{
+      & {
         position: absolute;
         z-index: 1;
         width: 64px;
@@ -123,6 +151,12 @@ export default defineComponent({
         background-color: $primary-darken-1;
       }
     }
+  }
+
+  .footer {
+    position: absolute;
+
+    bottom: 0%;
   }
 }
 </style>
