@@ -1,7 +1,8 @@
 <template lang="pug">
 .container.mx-auto
-  h1.text-5xl datas: {{ events }}
-  p text
+  h1.text-5xl.py-4 compost-dashboard-app
+  div(v-for="item in events")
+    | {{ item }}
   button(
     @click="getEvents()"
   ).rounded-3xl.bg-red-400
@@ -13,7 +14,8 @@ import {
   defineComponent,
   ref,
   reactive,
-  onMounted,
+  ssrPromise,
+  onBeforeMount,
 } from "@nuxtjs/composition-api"
 import useSupabase from "../plugin/supabase"
 
@@ -23,17 +25,19 @@ export default defineComponent({
     const { supabase } = useSupabase()
 
     // let data: computed data:
-    let events = reactive({})
+    let events = ref()
 
     // methods:
     const getEvents = async () => {
-      return await supabase.from("profiles").select("*")
+      let { data, error, status } = await supabase.from("sensingData").select("*")
+      console.log(data, error, status)
+      return data
     }
 
-    events = getEvents()
 
     // life cycle
-    onMounted(() => {
+    onBeforeMount(async() => {
+      events.value = await getEvents()
     })
 
     // other
