@@ -1,7 +1,8 @@
 <template lang="pug">
 div
-  Header
-  Nuxt.mt-16.mx-auto.p-4
+  NavigationBar
+  .mt-16.ml-16.p-4
+    Nuxt
 </template>
 
 <script lang="ts">
@@ -29,6 +30,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+html {
+  width: 100vw;
+  height: 100vh;
+}
 body {
   background-color: $white;
 }

@@ -1,5 +1,6 @@
 <template lang="pug">
 .container
+  Header
   div(v-for="item in events")
     | {{ item }}
   button(

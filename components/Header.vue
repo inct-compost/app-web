@@ -1,6 +1,6 @@
 <template lang="pug">
 .header
-  div(class="title md:text-2xl text-base") Compost DashBoard
+  div(class="title md:text-2xl text-base font-semibold") Compost DashBoard
 </template>
 
 <script lang="ts">
