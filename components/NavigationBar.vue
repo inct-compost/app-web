@@ -10,7 +10,6 @@
         svg(viewBox="0 0 24 24")
           path(
             :d="nowPath === item.path ? item.icon : item.iconOutline"
-            fill="#489384"
           )
         .link-now(v-if="nowPath === item.path")
   .footer
@@ -18,7 +17,6 @@
       svg(viewBox="0 0 24 24")
         path(
           :d="mdiChevronRight"
-          fill="#489384"
         )
 </template>
 
@@ -98,7 +96,7 @@ export default defineComponent({
   top: 0%;
   left: 0%;
 
-  background-color: $white;
+  background-color: $background;
 
   .route {
     .link-button {
@@ -106,7 +104,7 @@ export default defineComponent({
         position: relative;
         z-index: 2;
 
-        color: $primary;
+        fill: $green;
         cursor: pointer;
       }
 
@@ -148,7 +146,7 @@ export default defineComponent({
         transform: translate(-4px, -50%);
 
         border-radius: 8px;
-        background-color: $primary-darken-1;
+        background-color: $green;
       }
     }
   }
@@ -157,6 +155,8 @@ export default defineComponent({
     position: absolute;
 
     bottom: 0%;
+
+    fill: $green
   }
 }
 </style>

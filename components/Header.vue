@@ -1,10 +1,12 @@
 <template lang="pug">
 .header
-  div(class="title md:text-2xl text-base font-semibold") {{ title }}
+  div(class="title md:text-3xl text-base font-semibold") {{ title }}
+    // Icon(:icon="mdiGithub")
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { mdiGithub } from '@mdi/js'
 
 export default defineComponent({
   name: 'Header',
@@ -16,7 +18,7 @@ export default defineComponent({
   },
   setup() {
     return {
-
+      mdiGithub,
     }
   },
 })

@@ -33,8 +33,10 @@ export default defineComponent({
 html {
   width: 100vw;
   height: 100vh;
+
+  font-family: 'Noto Sans JP', sans-serif;
 }
 body {
-  background-color: $white;
+  background-color: $background;
 }
 </style>
