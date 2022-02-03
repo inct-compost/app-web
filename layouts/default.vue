@@ -1,29 +1,58 @@
 <template lang="pug">
 div
-  NavigationBar
-  .pt-20.pl-20.p-4(style="min-height: 100vh;")
+  BottomNavigationBar(v-if="display === 'mobile'")
+  NavigationBar(v-else)
+  div.pt-20.p-4(
+    :style="{minHeight: '100vh', paddingLeft: display === 'mobile' ? '' : '80px'}"
+  )
     Nuxt
 </template>
 
 <script lang="ts">
 import {
-  defineComponent
+  defineComponent,
+  ref,
+  onMounted,
 } from '@vue/composition-api/'
 
 export default defineComponent({
-  setup() {
-    // const data:
+  setup () {
+    // const
+    const display = ref('')
 
-    // let data: computed data:
+    // let, computed
+    /* const display = computed(() => {
+      const size = ref(window.outerWidth)
 
-    // methods:
+      if (size.value < 960) {
+        return 'mobile'
+      } else {
+        return 'desktop'
+      }
+    }) */
 
-    // life cycle
+    // methods
+    const resizeEventListener = () => {
+      const size = ref(window.innerWidth)
+
+      if (size.value < 960) {
+        display.value = 'mobile'
+      } else {
+        display.value = 'desktop'
+      }
+      console.log(display.value)
+    }
+
+    // lifeCycle
+    onMounted(() => {
+      window.addEventListener('resize', resizeEventListener)
+      resizeEventListener()
+    })
 
     // other
 
-
     return {
+      display,
     }
   },
 })

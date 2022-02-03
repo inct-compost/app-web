@@ -7,27 +7,19 @@
 <script lang="ts">
 import {
   defineComponent,
-  ref,
-  reactive,
-  onBeforeMount,
-} from "@nuxtjs/composition-api"
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup() {
+  setup () {
     // const
-
 
     // let, computed
 
-
     // methods
-
 
     // lifeCycle
 
-
     // other
-
 
     return {
     }

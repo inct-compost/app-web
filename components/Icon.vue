@@ -18,10 +18,10 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: '#489384'
-    }
+      default: '#489384',
+    },
   },
-  setup() {
+  setup () {
 
   },
 })

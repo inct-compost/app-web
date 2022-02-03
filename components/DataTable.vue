@@ -32,28 +32,28 @@ export default defineComponent({
       default: () => ([{
         id: 'YY_MM_DD_HH_MM',
         temperature: 0,
-        humidity: 0
-      }])
-    }
+        humidity: 0,
+      }]),
+    },
   },
-  setup(props) {
-    var topBarItemList = reactive([
+  setup () {
+    const topBarItemList = reactive([
       {
         title: 'Date',
-        unit: ''
+        unit: '',
       },
       {
         title: 'Temperature',
-        unit: '℃'
+        unit: '℃',
       },
       {
         title: 'Humidity',
-        unit: '%'
+        unit: '%',
       },
       {
         title: 'Soil Temperature',
-        unit: '℃'
-      }
+        unit: '℃',
+      },
     ])
 
     return {
@@ -115,7 +115,7 @@ export default defineComponent({
   }
 
   &-data {
-    margin: 16px 0px 16px 0px;
+    padding: 16px 0px 16px 0px;
 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -126,11 +126,26 @@ export default defineComponent({
   position: relative;
   text-align: center;
 
+  cursor: pointer;
+
+  &:hover::before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 16px;
+
+    background-color: rgba(128, 128, 128, 0.1);
+  }
+
   &::after {
     position: absolute;
     content: '';
 
-    bottom: -16px;
+    bottom: 0px;
 
     width: 100%;
     height: 1px;

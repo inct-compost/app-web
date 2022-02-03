@@ -9,27 +9,26 @@
 import {
   defineComponent,
   ref,
-  reactive,
   onBeforeMount,
-} from "@nuxtjs/composition-api"
-import getSensingData from "~/composable/getSensingData"
+} from '@nuxtjs/composition-api'
+import getSensingData from '~/composable/getSensingData'
 
 export default defineComponent({
-  setup() {
+  setup () {
     // const
-    const Data = ref();
+    const Data = ref()
     // let, computed
     // methods
     // lifeCycle
     onBeforeMount(async () => {
-      const { sensingData } = await getSensingData();
-      Data.value = sensingData;
-      console.log(Data);
-    });
+      const { sensingData } = await getSensingData()
+      Data.value = sensingData
+      console.log(Data)
+    })
     // other
     return {
-      Data
-    };
+      Data,
+    }
   },
 })
 </script>

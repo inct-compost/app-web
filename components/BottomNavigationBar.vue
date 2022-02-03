@@ -1,9 +1,9 @@
 <template lang="pug">
-#navi
-  .logo
-    .p-4.w-16.h-16
+#bottom-navi
   .route
-    div(v-for="item in routeData")
+    div(
+      v-for="item in routeData"
+    )
       .link-button.p-4.w-16(
         @click="pushRoute(item.path)"
       )
@@ -12,12 +12,6 @@
             :d="nowPath === item.path ? item.icon : item.iconOutline"
           )
         .link-now(v-if="nowPath === item.path")
-  .footer
-    .p-4.w-16.h-16
-      svg(viewBox="0 0 24 24")
-        path(
-          :d="mdiChevronRight"
-        )
 </template>
 
 <script lang="ts">
@@ -85,26 +79,27 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-#navi {
+#bottom-navi {
   position: fixed;
   z-index: 10;
-  width: 64px;
-  height: 100%;
+  width: 100%;
+  height: 64px;
 
-  top: 0%;
+  bottom: 0%;
   left: 0%;
 
   background-color: $background;
 
   .route {
-    .link-button {
-      & {
-        position: relative;
-        z-index: 2;
+    display: flex;
+    justify-content: space-around;
 
-        fill: $green;
-        cursor: pointer;
-      }
+    .link-button {
+      position: relative;
+      z-index: 2;
+
+      fill: $green;
+      cursor: pointer;
 
       &:hover::before {
         position: absolute;
@@ -139,9 +134,9 @@ export default defineComponent({
         width: 8px;
         height: 8px;
 
-        top: 50%;
-        left: 8px;
-        transform: translate(-4px, -50%);
+        top: 8px;
+        left: 50%;
+        transform: translate(-50%, -4px);
 
         border-radius: 8px;
         background-color: $green;
