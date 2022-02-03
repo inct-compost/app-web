@@ -61,8 +61,6 @@ export default defineComponent({
       return route.value.fullPath
     })
 
-    console.log(nowPath)
-
     // watch
 
     // methods

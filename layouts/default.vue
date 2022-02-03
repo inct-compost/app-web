@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   NavigationBar
-  .mt-16.ml-16.p-4
+  .pt-20.pl-20.p-4(style="min-height: 100vh;")
     Nuxt
 </template>
 

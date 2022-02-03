@@ -20,6 +20,8 @@
 
 
 ## Getting Started
+0. add `.env` file
+
 1. `yarn`<br>
 
 2. `yarn dev`<br>
