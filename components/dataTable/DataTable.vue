@@ -4,9 +4,15 @@
     .top-bar-item(v-for="topBarItem in topBarItemList")
       | {{ topBarItem.title }}
   .table-item
-    .table-item-data(v-for="item in sensingData")
+    .table-item-data(v-for="(item, index) in sensingData")
       div(v-text="item.id + topBarItemList[0].unit")
-      div(v-text="item.temperature + topBarItemList[1].unit")
+      .temperature
+        // ToDo: 一つ前のデータを参照して上がったか下がったを見ているが、Functionsであらかじめそのデータを入れておきたい
+        Icon.ml-6(
+          :icon="index < sensingData.length - 1 ? returnDifference(sensingData[index + 1].temperature, item.temperature).icon : null"
+          :color="index < sensingData.length - 1 ? returnDifference(sensingData[index + 1].temperature, item.temperature).color : null"
+        )
+        span(v-text="item.temperature + topBarItemList[1].unit")
       div(v-text="item.humidity + topBarItemList[2].unit")
       div(v-text="item.soilTemperature + topBarItemList[3].unit")
 </template>
@@ -17,12 +23,16 @@ import {
   reactive,
   PropType,
 } from '@nuxtjs/composition-api'
+import {
+  mdiArrowUpBoldCircle,
+  mdiArrowDownBoldCircle,
+} from '@mdi/js'
 
 interface sensingDataType {
-  id: String,
-  temperature: Number,
-  humidity: Number,
-  soilTemperature: Number,
+  id: string,
+  temperature: number,
+  humidity: number,
+  soilTemperature: number,
 }
 
 export default defineComponent({
@@ -37,6 +47,7 @@ export default defineComponent({
     },
   },
   setup () {
+    // const
     const topBarItemList = reactive([
       {
         title: 'Date',
@@ -56,8 +67,33 @@ export default defineComponent({
       },
     ])
 
+    // computed
+    // methods
+    const returnDifference = (minuend: number, subtrahend: number) => {
+      const difference = minuend - subtrahend
+      if (difference < 0) {
+        return {
+          icon: mdiArrowUpBoldCircle,
+          color: '#3B7579',
+        }
+      } else if (difference > 0) {
+        return {
+          icon: mdiArrowDownBoldCircle,
+          color: '#283266',
+        }
+      } else {
+        return {
+          icon: null,
+          color: null,
+        }
+      }
+    }
+
+    // lifeCycle
+
     return {
       topBarItemList,
+      returnDifference,
     }
   },
 })
@@ -83,7 +119,7 @@ export default defineComponent({
     min-height: 50px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 
     text-align: center;
     line-height: 50px;
@@ -118,7 +154,7 @@ export default defineComponent({
     padding: 16px 0px 16px 0px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
 
@@ -152,5 +188,10 @@ export default defineComponent({
 
     background: $gray;
   }
+}
+
+.temperature {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

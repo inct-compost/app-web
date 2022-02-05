@@ -12,12 +12,14 @@ import {
   onBeforeMount,
 } from '@nuxtjs/composition-api'
 import getSensingData from '~/composable/getSensingData'
+import DataTable from '~/components/dataTable/DataTable.vue'
 
 export default defineComponent({
+  components: { DataTable },
   setup () {
     // const
     const Data = ref()
-    // let, computed
+    // computed
     // methods
     // lifeCycle
     onBeforeMount(async () => {

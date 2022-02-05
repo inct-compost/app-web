@@ -14,43 +14,39 @@ import {
   ref,
   onMounted,
 } from '@vue/composition-api/'
+import BottomNavigationBar from '~/components/utils/BottomNavigationBar.vue'
+import NavigationBar from '~/components/utils/NavigationBar.vue'
 
 export default defineComponent({
+  components: { BottomNavigationBar, NavigationBar },
   setup () {
     // const
     const display = ref('')
-
     // let, computed
     /* const display = computed(() => {
-      const size = ref(window.outerWidth)
+          const size = ref(window.outerWidth)
 
-      if (size.value < 960) {
-        return 'mobile'
-      } else {
-        return 'desktop'
-      }
-    }) */
-
+          if (size.value < 960) {
+            return 'mobile'
+          } else {
+            return 'desktop'
+          }
+        }) */
     // methods
     const resizeEventListener = () => {
       const size = ref(window.innerWidth)
-
       if (size.value < 960) {
         display.value = 'mobile'
       } else {
         display.value = 'desktop'
       }
-      console.log(display.value)
     }
-
     // lifeCycle
     onMounted(() => {
       window.addEventListener('resize', resizeEventListener)
       resizeEventListener()
     })
-
     // other
-
     return {
       display,
     }
