@@ -13,9 +13,10 @@ import {
 } from '@nuxtjs/composition-api'
 import getSensingData from '~/composable/getSensingData'
 import DataTable from '~/components/dataTable/DataTable.vue'
+import Header from '~/components/utils/Header.vue'
 
 export default defineComponent({
-  components: { DataTable },
+  components: { DataTable, Header },
   setup () {
     // const
     const Data = ref()

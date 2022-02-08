@@ -8,21 +8,17 @@
 import {
   defineComponent,
 } from '@nuxtjs/composition-api'
+import Header from '~/components/utils/Header.vue'
 
 export default defineComponent({
+  components: { Header },
   setup () {
     // const
-
     // let, computed
-
     // methods
-
     // lifeCycle
-
     // other
-
-    return {
-    }
+    return {}
   },
 })
 </script>

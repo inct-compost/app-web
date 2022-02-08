@@ -119,11 +119,11 @@ export default defineComponent({
     min-height: 50px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 
     text-align: center;
     line-height: 50px;
-    border-radius: 16px 16px 16px 16px;
+    border-radius: 8px;
 
     color: $white;
     background-color: $blue_grrenish_lighten_1;
@@ -154,7 +154,7 @@ export default defineComponent({
     padding: 16px 0px 16px 0px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
 
@@ -171,8 +171,6 @@ export default defineComponent({
 
     width: 100%;
     height: 100%;
-
-    border-radius: 16px;
 
     background-color: rgba(128, 128, 128, 0.1);
   }

@@ -136,12 +136,12 @@ export default defineComponent({
       &::after {
         position: absolute;
         content: '';
-        width: 8px;
-        height: 8px;
+        width: 4px;
+        height: 24px;
 
         top: 50%;
-        left: 8px;
-        transform: translate(-4px, -50%);
+        left: 12px;
+        transform: translate(-6px, -50%);
 
         border-radius: 8px;
         background-color: $green;
