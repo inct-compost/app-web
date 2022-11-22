@@ -1,7 +1,6 @@
 <template>
   <div>
-    <NuxtWelcome />
-    {{ msg }}
+    <NuxtPage />
   </div>
 </template>
 
@@ -9,5 +8,4 @@
 import { registerSW } from 'virtual:pwa-register'
 
 registerSW()
-const msg = ref('hello')
 </script>

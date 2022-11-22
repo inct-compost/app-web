@@ -8,6 +8,52 @@ export default defineNuxtConfig({
     '@vueuse/nuxt'
   ],
 
+  components: {
+    dirs: [
+      'components/layouts',
+      'components/utils'
+    ]
+  },
+
+  imports: {
+    dirs: [
+      'composables',
+      'composables/*/+.{ts,js,mjs,mts}',
+      'utils',
+      'utils/*/*.{ts,js,mjs,mts}'
+    ]
+  },
+
+  app: {
+    head: {
+      title: 'IoT Compost Toilet',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: '' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/icon_rounded.png' },
+        { rel: 'apple-touch-icon', href: '/apple_touch_icon.png', sizes: '180x180' },
+        { rel: 'mask-icon', color: '#FCFCF9', href: '/mask_icon.svg' },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com'
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap'
+        },
+        {
+          rel: 'manifest',
+          'data-n-head': '1',
+          'data-h-id': 'manifest',
+          href: 'manifest.webmanifest'
+        }
+      ]
+    }
+  },
+
   vite: {
     plugins: [
       VitePWA({
@@ -17,7 +63,36 @@ export default defineNuxtConfig({
           enabled: false
         },
         workbox: {
-          globPatterns: [ '**/*.{js,css,html,ico,png,svg,woff2}' ]
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'google-fonts-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
+                },
+                cacheableResponse: {
+                  statuses: [ 0, 200 ]
+                }
+              }
+            },
+            {
+              urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'gstatic-fonts-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
+                },
+                cacheableResponse: {
+                  statuses: [ 0, 200 ]
+                }
+              }
+            }
+          ]
         },
         includeAssets: [ 'icon_rounded.png', 'apple_touch_icon.png', 'masked_icon.svg' ],
         manifest: {

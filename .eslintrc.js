@@ -20,16 +20,16 @@ module.exports = {
   ],
   rules: {
     'vue/multi-word-component-names': 'off',
-    'semi': [ 'error', 'never', { 'beforeStatementContinuationChars': 'never' } ],
-    'semi-spacing': [ 'error', { 'after': true, 'before': false } ],
+    semi: [ 'error', 'never', { beforeStatementContinuationChars: 'never' } ],
+    'semi-spacing': [ 'error', { after: true, before: false } ],
     'semi-style': [ 'error', 'first' ],
     'no-extra-semi': 'error',
     'no-unexpected-multiline': 'error',
     'no-unreachable': 'error',
     'no-console': [ 'warn', { allow: [ 'warn', 'error' ] } ],
     'eol-last': [ 'error', 'always' ],
-    'quotes': [ 2, 'single' ],
+    quotes: [ 2, 'single' ],
     'object-curly-spacing': [ 'error', 'always' ],
-    'array-bracket-spacing': [ 'error', 'always' ],
+    'array-bracket-spacing': [ 'error', 'always' ]
   }
 }
