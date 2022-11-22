@@ -6,6 +6,8 @@
 </template>
 
 <script lang="ts" setup>
-const msg = ref('hello')
+import { registerSW } from 'virtual:pwa-register'
 
+registerSW()
+const msg = ref('hello')
 </script>
