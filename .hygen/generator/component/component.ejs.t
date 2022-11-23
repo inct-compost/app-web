@@ -3,7 +3,7 @@ to: <%= atomic %>/<%= h.changeCase.pascal(componentName) %>/<%= h.changeCase.pas
 ---
 
 <template>
-  <div id="<%= h.changeCase.camel(componentName)  %>">
+  <div id="<%= h.changeCase.camel(componentName) %>">
     <%= h.changeCase.camel(componentName)  %>
   </div>
 </template>
