@@ -29,7 +29,8 @@ module.exports = {
 
         imports: [
           'vue',
-          '@vueuse/core'
+          '@vueuse/core',
+          'pinia'
         ]
       })
     ]
