@@ -4,34 +4,6 @@ import { VitePWA } from 'vite-plugin-pwa'
 export default defineNuxtConfig({
   ssr: false,
 
-  modules: [
-    '@vueuse/nuxt',
-    [
-      '@pinia/nuxt',
-      {
-        autoImports: [
-          'defineStore'
-        ]
-      }
-    ]
-  ],
-
-  components: {
-    dirs: [
-      'components/layouts',
-      'components/utils'
-    ]
-  },
-
-  imports: {
-    dirs: [
-      'composables',
-      'composables/**/*.{ts,js,mjs,mts}',
-      'utils',
-      'utils/**/*.{ts,js,mjs,mts}'
-    ]
-  },
-
   app: {
     head: {
       title: 'IoT Compost Toilet',
@@ -61,6 +33,34 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  components: {
+    dirs: [
+      'components/layouts',
+      'components/utils'
+    ]
+  },
+
+  imports: {
+    dirs: [
+      'composables',
+      'composables/**/*.{ts,js,mjs,mts}',
+      'utils',
+      'utils/**/*.{ts,js,mjs,mts}'
+    ]
+  },
+
+  modules: [
+    '@vueuse/nuxt',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: [
+          'defineStore'
+        ]
+      }
+    ]
+  ],
 
   vite: {
     plugins: [

@@ -13658,6 +13658,22 @@ unplugin-auto-import@^0.11.5:
     unimport "^1.0.1"
     unplugin "^1.0.0"
 
+unplugin-vue-components@^0.22.11:
+  version "0.22.11"
+  resolved "https://registry.yarnpkg.com/unplugin-vue-components/-/unplugin-vue-components-0.22.11.tgz#5e2f4ad776cc5540546a7cdaf6408e037b3c73b1"
+  integrity sha512-GTzqPl0Ek8fq8qMufjR6hvtnjnSwMpJ1Rg2Ez9AcKZVp1piWoU/Q4FDnI9wHVKX8eenYL0nqAF3ejYAk1TUfqQ==
+  dependencies:
+    "@antfu/utils" "^0.7.0"
+    "@rollup/pluginutils" "^5.0.2"
+    chokidar "^3.5.3"
+    debug "^4.3.4"
+    fast-glob "^3.2.12"
+    local-pkg "^0.4.2"
+    magic-string "^0.26.7"
+    minimatch "^5.1.0"
+    resolve "^1.22.1"
+    unplugin "^1.0.0"
+
 unplugin@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-1.0.0.tgz#8d12e0d116bf56313d42755094fc370e9c18da86"
