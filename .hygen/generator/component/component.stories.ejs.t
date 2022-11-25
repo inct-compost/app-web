@@ -11,12 +11,13 @@ export default {
   }
 } as Meta
 
-const Template: Story = args => ({
+const Template: Story = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { <%= h.changeCase.pascal(componentName) %> },
   setup () {
     return { args }
   },
-  template: '<<%= h.changeCase.pascal(componentName) %> v-bind="args" />'
+  template: '<<%= h.changeCase.pascal(componentName) %> v-bind="args">{{ args.default }}</<%= h.changeCase.pascal(componentName) %>>'
 })
 
 export const Primary = Template.bind({})
