@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts" setup>
+import 'material-icons/iconfont/material-icons.css'
 import { registerSW } from 'virtual:pwa-register'
 
 registerSW()
