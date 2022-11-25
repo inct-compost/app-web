@@ -5,65 +5,74 @@
     :size="!isIcon && size"
     :fab="fab"
     :icon="isIcon"
+    :outlined="outlined"
     @click="click()"
   >
     <div class="text">
       <Icon
         v-if="icon"
-        :color="!isIcon ? dependsLuminanceColor(props.color) : null"
+        :icon="icon"
+        :color="!isIcon ? dependsLuminanceColor(backgroundColor) : undefined"
         size="24px"
         :fill="props.iconProps?.fill"
         :wght="props.iconProps?.wght"
-        :grad="props.iconProps?.grad"
-        :opsz="props.iconProps?.opsz"
         :style="!isIcon && 'margin-right: 0.4rem'"
-      >
-        {{ icon }}
-      </Icon>
+      />
       <slot />
     </div>
   </button>
 </template>
 
 <script lang="ts" setup>
+import { IconProps } from '../Icon/Icon.vue'
+import { IconNameType } from '~/types/icon/IconNameType'
+
 /* -- type, interface -- */
-export interface IButtonProps {
+interface ButtonEmits {
+  (e: 'click'): void
+}
+
+interface ButtonProps {
   disabled?: boolean
-  icon?: string
-  // iconProps?: IIconProps
-  iconProps?: any
+  icon?: IconNameType
+  iconProps?: IconProps
   color?: string
   size?: 'small' | 'normal' | 'large'
   fab?: boolean
   isIcon?: boolean
+  outlined? :boolean
   to?: string
 }
 
-export interface IButtonEmits {
-  (e: 'click'): void
-}
+/* -- props, emit -- */
+const props = withDefaults(defineProps<ButtonProps>(), {
+  icon: undefined,
+  iconProps: undefined,
+  color: undefined,
+  size: 'normal',
+  to: undefined
+})
+
+const emit = defineEmits<ButtonEmits>()
 
 /* -- store -- */
 const colorStore = useColorStore()
 
-/* -- props, emit -- */
-const props = withDefaults(defineProps<IButtonProps>(), {
-  color: '#5498ff',
-  size: 'normal'
-})
-
-const emit = defineEmits<IButtonEmits>()
+/* -- state -- */
 
 /* -- variable(ref, reactive, computed) -- */
+const backgroundColor = computed(() => {
+  return props.color ? props.color : colorStore.color.theme.text
+})
 
 /* -- function -- */
 const click = () => {
-  props.to ? navigateTo(props.to) : emit('click')
+  props.to ? navigateTo(props.to, { external: true }) : emit('click')
 }
 
 /* -- watch -- */
-
 /* -- life cycle -- */
+
 </script>
 
 <style lang="scss" scoped>
@@ -74,13 +83,17 @@ const click = () => {
 
   border: none;
   border-radius: 8px;
-  background-color: v-bind('props.color');
+  background-color: v-bind("backgroundColor");
   cursor: pointer;
   outline: none;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
 
   .text {
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+
     position: relative;
     z-index: 1;
     height: 24px;
@@ -89,11 +102,8 @@ const click = () => {
     text-align: center;
     font-size: 16px;
     font-weight: 500;
-    color: v-bind('dependsLuminanceColor(props.color)');
-
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
+    color: v-bind('dependsLuminanceColor(backgroundColor)');
+    white-space: nowrap;
   }
 
   &:hover::before {
@@ -163,11 +173,25 @@ const click = () => {
 
     background-color: transparent;
 
+    &:hover::before {
+      border-radius: 50%;
+    }
+
     .text {
       height: calc(100% - 16px);
 
       padding: 0px;
       margin: 0px;
+    }
+  }
+
+  &[outlined = true] {
+    background-color: transparent;
+
+    border: solid 2px v-bind("colorStore.color.theme.subText");
+    .text {
+      color: v-bind("colorStore.color.theme.text");
+      font-weight: 600;
     }
   }
 

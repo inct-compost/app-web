@@ -8,14 +8,16 @@ export default {
   }
 } as Meta
 
-const Template: Story = args => ({
+const Template: Story = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
   components: { Button },
   setup () {
     return { args }
   },
-  template: '<Button v-bind="args" />'
+  template: '<Button v-bind="args">{{ args.default }}</Button>'
 })
 
 export const Primary = Template.bind({})
 Primary.args = {
+  default: 'Button text'
 }
