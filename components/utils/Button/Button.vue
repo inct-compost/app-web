@@ -24,18 +24,18 @@
 </template>
 
 <script lang="ts" setup>
-import { IconProps } from '../Icon/Icon.vue'
+import { IIconProps } from '../Icon/Icon.vue'
 import { IconNameType } from '~/types/icon/IconNameType'
 
 /* -- type, interface -- */
-interface ButtonEmits {
+export interface IButtonEmits {
   (e: 'click'): void
 }
 
-interface ButtonProps {
+export interface IButtonProps {
   disabled?: boolean
   icon?: IconNameType
-  iconProps?: IconProps
+  iconProps?: IIconProps
   color?: string
   size?: 'small' | 'normal' | 'large'
   fab?: boolean
@@ -45,7 +45,7 @@ interface ButtonProps {
 }
 
 /* -- props, emit -- */
-const props = withDefaults(defineProps<ButtonProps>(), {
+const props = withDefaults(defineProps<IButtonProps>(), {
   icon: undefined,
   iconProps: undefined,
   color: undefined,
@@ -53,7 +53,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   to: undefined
 })
 
-const emit = defineEmits<ButtonEmits>()
+const emit = defineEmits<IButtonEmits>()
 
 /* -- store -- */
 const colorStore = useColorStore()

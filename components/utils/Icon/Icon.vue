@@ -8,7 +8,7 @@
 import { IconNameType } from '~/types/icon/IconNameType'
 
 /* -- type, interface -- */
-export interface IconProps {
+export interface IIconProps {
   icon: IconNameType
   size?: string
   color?: string
@@ -17,7 +17,7 @@ export interface IconProps {
 }
 
 /* -- props, emit -- */
-const props = withDefaults(defineProps<IconProps>(), {
+const props = withDefaults(defineProps<IIconProps>(), {
   icon: undefined,
   size: '24px',
   color: undefined,

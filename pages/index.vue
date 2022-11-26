@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     index
-    <Button>Button</Button>
+    <Button icon="face">Button</Button>
   </div>
 </template>
 
