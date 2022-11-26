@@ -30,7 +30,7 @@ module.exports = {
           '@vueuse/core',
           'pinia'
         ],
-        dts: '.storybook/auto-imports.d.ts',
+        dts: '.storybook/types/auto-imports.d.ts',
       }),
       AutoImport({
         dirs: [
@@ -38,7 +38,7 @@ module.exports = {
           'composables/**/*.{ts,js,mjs,mts}',
         ],
         vueTemplate: true,
-        dts: '.storybook/composables.d.ts',
+        dts: '.storybook/types/composables.d.ts',
       }),
       AutoImport({
         dirs: [
@@ -46,7 +46,7 @@ module.exports = {
           'utils/**/*.{ts,js,mjs,mts}'
         ],
         vueTemplate: true,
-        dts: '.storybook/utils.d.ts',
+        dts: '.storybook/types/utils.d.ts',
       }),
       Components({
         dirs: [
@@ -56,7 +56,7 @@ module.exports = {
         deep: true,
         directoryAsNamespace: true,
         extensions: ['vue'],
-        dts: '.storybook/components.d.ts',
+        dts: '.storybook/types/components.d.ts',
       }),
     ]
 
