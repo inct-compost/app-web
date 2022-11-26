@@ -1,4 +1,4 @@
-import { useColorStore } from '../composables/style/colorStore'
+import { useColorStore } from '../../composables/style/colorStore'
 
 /**
  * 背景色から輝度を求め、テキストのカラーを返す関数
