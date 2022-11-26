@@ -10,6 +10,8 @@ declare module '@vue/runtime-core' {
     Button: typeof import('./../../components/utils/Button/Button.vue')['default']
     Header: typeof import('./../../components/layouts/Header/Header.vue')['default']
     Icon: typeof import('./../../components/utils/Icon/Icon.vue')['default']
+    NavgationBar: typeof import('./../../components/layouts/NavigationBar/NavgationBar.vue')['default']
+    NavigationBar: typeof import('./../../components/layouts/NavigationBar/NavigationBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

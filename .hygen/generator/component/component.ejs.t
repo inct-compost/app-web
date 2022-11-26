@@ -14,8 +14,8 @@ to: <%= atomic %>/<%= h.changeCase.pascal(componentName) %>/<%= h.changeCase.pas
 export interface I<%= h.changeCase.pascal(componentName) %>Props {
   modelValue: any;
 }
-<% } -%>
 
+<% } -%>
 <% if (isEmit) { -%>
 export interface I<%= h.changeCase.pascal(componentName) %>Emits {
   (e: 'update:modelValue'): void
@@ -29,12 +29,12 @@ export interface I<%= h.changeCase.pascal(componentName) %>Emits {
 const props = withDefaults(defineProps<I<%= h.changeCase.pascal(componentName) %>Props>(), {
   modelValue: false
 })
-<% } -%>
 
+<% } -%>
 <% if (isEmit) { -%>
 const emit = defineEmits<I<%= h.changeCase.pascal(componentName) %>Emits>()
-<% } -%>
 
+<% } -%>
 /* -- variable(ref, reactive, computed) -- */
 <% if (isProps && isEmit) { -%>
 const vModel = useVModel(props, 'modelValue', emit)
