@@ -1,4 +1,5 @@
 const AutoImport = require('unplugin-auto-import/vite')
+const Components = require('unplugin-vue-components/vite')
 const path = require('path')
 
 module.exports = {
@@ -46,6 +47,16 @@ module.exports = {
         ],
         vueTemplate: true,
         dts: '.storybook/utils.d.ts',
+      }),
+      Components({
+        dirs: [
+          'components/layouts/*/',
+          'components/utils/*/'
+        ],
+        deep: true,
+        directoryAsNamespace: true,
+        extensions: ['vue'],
+        dts: '.storybook/components.d.ts',
       }),
     ]
 
