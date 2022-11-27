@@ -12,7 +12,7 @@
       <Icon
         v-if="icon"
         :icon="icon"
-        :color="!isIcon ? dependsLuminanceColor(backgroundColor) : undefined"
+        :color="!isIcon ? dependsLuminanceColor(color) : undefined"
         size="24px"
         :fill="props.iconProps?.fill"
         :wght="props.iconProps?.wght"
@@ -48,7 +48,7 @@ export interface IButtonProps {
 const props = withDefaults(defineProps<IButtonProps>(), {
   icon: undefined,
   iconProps: undefined,
-  color: undefined,
+  color: '#5498ff',
   size: 'normal',
   to: undefined
 })
@@ -61,9 +61,6 @@ const colorStore = useColorStore()
 /* -- state -- */
 
 /* -- variable(ref, reactive, computed) -- */
-const backgroundColor = computed(() => {
-  return props.color ? props.color : colorStore.color.theme.text
-})
 
 /* -- function -- */
 const click = () => {
@@ -83,7 +80,7 @@ const click = () => {
 
   border: none;
   border-radius: 8px;
-  background-color: v-bind("backgroundColor");
+  background-color: v-bind("props.color");
   cursor: pointer;
   outline: none;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
@@ -102,7 +99,7 @@ const click = () => {
     text-align: center;
     font-size: 16px;
     font-weight: 500;
-    color: v-bind('dependsLuminanceColor(backgroundColor)');
+    color: v-bind('dependsLuminanceColor(props.color)');
     white-space: nowrap;
   }
 
