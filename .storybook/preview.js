@@ -1,4 +1,4 @@
-import 'material-icons/iconfont/material-icons.css'
+import 'material-symbols'
 import { themes } from '@storybook/theming'
 import { app } from '@storybook/vue3';
 import { createPinia } from 'pinia';

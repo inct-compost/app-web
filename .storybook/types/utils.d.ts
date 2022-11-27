@@ -2,13 +2,13 @@
 export {}
 declare global {
   const dependsLuminanceColor: typeof import('../../utils/style/dependsLuminanceColor')['dependsLuminanceColor']
-  const displayType: typeof import('../../utils/utils/displayType')['displayType']
+  const displayStatus: typeof import('../../utils/utils/displayType')['displayStatus']
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     readonly dependsLuminanceColor: UnwrapRef<typeof import('../../utils/style/dependsLuminanceColor')['dependsLuminanceColor']>
-    readonly displayType: UnwrapRef<typeof import('../../utils/utils/displayType')['displayType']>
+    readonly displayStatus: UnwrapRef<typeof import('../../utils/utils/displayType')['displayStatus']>
   }
 }

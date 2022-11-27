@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NuxtLayout>
+    <NuxtLayout :name="layout">
       <NuxtPage />
     </NuxtLayout>
   </div>
@@ -19,6 +19,14 @@ const colorStore = useColorStore()
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
+const { displayType } = displayStatus()
+const layout = computed(() => {
+  if (displayType.value === 'sm') {
+    return 'smartphone'
+  } else {
+    return 'default'
+  }
+})
 
 /* -- function -- */
 
