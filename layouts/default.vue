@@ -1,7 +1,9 @@
 <template>
   <div id="default-layout">
     <NavigationBar />
-    <slot />
+    <div class="contents">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -17,5 +19,9 @@
   position: relative;
   width: 100%;
   height: 100%;
+
+  .contents {
+    padding: 1em;
+  }
 }
 </style>

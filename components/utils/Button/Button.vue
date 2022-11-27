@@ -171,7 +171,7 @@ const click = () => {
     background-color: transparent;
 
     &:hover::before {
-      border-radius: 50%;
+      border-radius: 25%;
     }
 
     .text {
