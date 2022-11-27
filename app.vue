@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <NuxtPage />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
 <script lang="ts" setup>
-import 'material-icons/iconfont/material-icons.css'
+import 'material-symbols'
 import { registerSW } from 'virtual:pwa-register'
 
 registerSW()
@@ -28,12 +30,15 @@ const colorStore = useColorStore()
 
 <style lang="scss">
 html, body {
-  min-height: 100vh;
   margin: 0px;
+
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 #app {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   background-color: v-bind("colorStore.color.theme.background");
+  color: v-bind("colorStore.color.theme.text");
 }
 </style>

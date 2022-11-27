@@ -9564,10 +9564,10 @@ markdown-escapes@^1.0.0:
   resolved "https://registry.yarnpkg.com/markdown-escapes/-/markdown-escapes-1.0.4.tgz#c95415ef451499d7602b91095f3c8e8975f78535"
   integrity sha512-8z4efJYk43E0upd0NbVXwgSTQs6cT3T06etieCMEg7dRbzCbxUCK/GHlX8mhHRDcp+OLlHkPKsvqQTCvsRl2cg==
 
-material-icons@^1.12.1:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.12.2.tgz#68dbf74309ebfbd791eea75b5fec2d74b07d558f"
-  integrity sha512-z17mvWzcQBp9O1wgJcmLDJLSR54VssccCYbB/ZgV7DzLxxy4cpfoc/MNH9fabO1wlowWCzSQM8/KA5EPTsN4qQ==
+material-symbols@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/material-symbols/-/material-symbols-0.4.0.tgz#8a046a4d1ad6c4c536ad5f879f8e3e76e6fb7ba5"
+  integrity sha512-+pPDh/JHZvVtF4l+Jri3JAdUiwisTkFSuYiYjPhDpc+Ugpb1FMO8GygWY68u+XCtzPpr96DH3nxLuVeDDIYNrA==
 
 md5.js@^1.3.4:
   version "1.3.5"
