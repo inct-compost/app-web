@@ -22,7 +22,7 @@ export interface IIconProps {
 const props = withDefaults(defineProps<IIconProps>(), {
   icon: undefined,
   size: '24px',
-  color: undefined,
+  color: '#030300',
   fill: false,
   wght: 600,
   grad: 0,
@@ -30,11 +30,13 @@ const props = withDefaults(defineProps<IIconProps>(), {
 })
 
 /* -- store -- */
-const colorStore = useColorStore()
 
 /* -- variable(ref, reactive, computed) -- */
+
 /* -- function -- */
+
 /* -- watch -- */
+
 /* -- life cycle -- */
 </script>
 
@@ -42,7 +44,7 @@ const colorStore = useColorStore()
 .material-symbols-rounded {
   font-variation-settings: 'FILL' v-bind('props.fill ? 1 : 0'), 'wght' v-bind('props.wght'), 'GRAD' v-bind('props.grad'), 'opsz' v-bind('props.opsz');
   font-size: v-bind('props.size');
-  color: v-bind("props.color ? props.color : colorStore.color.theme.text");
+  color: v-bind("props.color");
   text-align: center;
   user-select: none;
 }

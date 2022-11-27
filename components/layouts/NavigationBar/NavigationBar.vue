@@ -17,7 +17,7 @@
           :to="link.path"
           :icon-props="{
             fill: route.path === link.path ? true : false,
-            color: route.path === link.path ? colorStore.color.theme.text : colorStore.color.red.default
+            color: route.path === link.path ? colorStore.color.theme.text : colorStore.color.theme.darken[1]
           }"
         />
       </div>
