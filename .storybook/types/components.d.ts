@@ -15,5 +15,6 @@ declare module '@vue/runtime-core' {
     NavigationBar: typeof import('./../../components/layouts/NavigationBar/NavigationBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SignInButton: typeof import('./../../components/utils/SignInButton/SignInButton.vue')['default']
   }
 }

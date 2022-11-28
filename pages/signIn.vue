@@ -1,6 +1,7 @@
 <template>
-  <div id="setting">
-    setting
+  <div id="signIn">
+    signIn
+    <SignInButton />
   </div>
 </template>
 
@@ -8,6 +9,7 @@
 /* -- type, interface -- */
 
 /* -- store -- */
+const authStore = useAuthStore()
 
 /* -- props, emit -- */
 
@@ -18,14 +20,18 @@
 /* -- watch -- */
 
 /* -- life cycle -- */
+if (authStore.loggedInUser.uid) {
+  useRouter().push('/')
+}
+
 definePageMeta({
-  title: 'Setting',
-  middleware: [ 'auth' ]
+  title: 'Sign In',
+  layout: 'no-nav-bar'
 })
 </script>
 
 <style lang="scss" scoped>
-#setting {
+#signIn {
 
 }
 </style>

@@ -1,6 +1,12 @@
 <template>
-  <div id="setting">
-    setting
+  <div id="about">
+    about
+    <Button
+      to="signIn"
+      icon="login"
+    >
+      サインイン画面へ
+    </Button>
   </div>
 </template>
 
@@ -19,13 +25,13 @@
 
 /* -- life cycle -- */
 definePageMeta({
-  title: 'Setting',
+  title: 'About',
   middleware: [ 'auth' ]
 })
 </script>
 
 <style lang="scss" scoped>
-#setting {
+#about {
 
 }
 </style>

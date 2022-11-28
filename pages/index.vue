@@ -4,6 +4,8 @@
     {{ lp }}
     {{ pc }}
     {{ displayType }}
+    {{ authStore.loggedInUser }}
+    <SignInButton />
   </div>
 </template>
 
@@ -18,12 +20,14 @@
 const { sm, lp, pc, displayType, displayTypeMixin } = displayStatus()
 
 /* -- function -- */
+const authStore = useAuthStore()
 
 /* -- watch -- */
 
 /* -- life cycle -- */
 definePageMeta({
-  title: 'Index'
+  title: 'Index',
+  middleware: [ 'auth' ]
 })
 </script>
 

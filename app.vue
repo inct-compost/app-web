@@ -15,13 +15,16 @@ registerSW()
 
 /* -- store -- */
 const colorStore = useColorStore()
+const authStore = useAuthStore()
 
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
 const { displayType } = displayStatus()
 const layout = computed(() => {
-  if (displayType.value === 'sm') {
+  if (!authStore.loggedInUser.uid) {
+    return 'no-nav-bar'
+  } else if (displayType.value === 'sm') {
     return 'smartphone'
   } else {
     return 'default'
@@ -33,7 +36,6 @@ const layout = computed(() => {
 /* -- watch -- */
 
 /* -- life cycle -- */
-
 </script>
 
 <style lang="scss">
