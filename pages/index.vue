@@ -4,9 +4,6 @@
     {{ lp }}
     {{ pc }}
     {{ displayType }}
-    <Button icon="face">
-      テストボタン
-    </Button>
   </div>
 </template>
 
