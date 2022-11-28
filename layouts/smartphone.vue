@@ -34,6 +34,9 @@
 
   .contents {
     padding: 1em;
+
+    overflow: auto;
+    overflow-wrap: break-word;
   }
 }
 </style>

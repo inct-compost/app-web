@@ -10,7 +10,7 @@ export const useColorStore = defineStore('color', () => {
         2: '#FFFFEE'
       },
       darken: {
-        1: '#F2F2F2',
+        1: '#F8F8F8',
         2: '#E9E9E0'
       }
     },
@@ -72,7 +72,7 @@ export const useColorStore = defineStore('color', () => {
     theme: {
       text: '#030300',
       subText: '#676764',
-      background: '#F2F2F2',
+      background: '#F8F8F8',
       lighten: {
         1: '#676764',
         2: '#CBCAC7'
@@ -86,7 +86,7 @@ export const useColorStore = defineStore('color', () => {
         2: '#FFFFEE'
       },
       complementaryDarken: {
-        1: '#F2F2F2',
+        1: '#F8F8F8',
         2: '#E9E9E0'
       }
     }
