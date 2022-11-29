@@ -29,6 +29,25 @@ module.exports = {
     'eol-last': [ 'error', 'always' ],
     quotes: [ 2, 'single' ],
     'object-curly-spacing': [ 'error', 'always' ],
-    'array-bracket-spacing': [ 'error', 'always' ]
+    'array-bracket-spacing': [ 'error', 'always' ],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'interface',
+        format: [ 'PascalCase' ],
+        custom: {
+          regex: '^I[A-Z]',
+          match: true
+        }
+      },
+      {
+        selector: 'typeAlias',
+        format: [ 'PascalCase' ],
+        custom: {
+          regex: 'Type$',
+          match: true
+        }
+      }
+    ]
   }
 }
