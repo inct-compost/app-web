@@ -45,8 +45,10 @@ export default defineNuxtConfig({
     dirs: [
       'composables',
       'composables/**/*.{ts,js,mjs,mts}',
+      'composables/**',
       'utils',
-      'utils/**/*.{ts,js,mjs,mts}'
+      'utils/**/*.{ts,js,mjs,mts}',
+      'utils/**'
     ]
   },
 

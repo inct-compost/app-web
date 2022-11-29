@@ -26,12 +26,18 @@ export const useAuthStore = defineStore('auth', () => {
     photoURL: null
   })
 
+  const isLoggedIn = ref<boolean>(false)
+
   /* -- mutation -- */
   const updateLoggedInUser = ({ name, email, uid, photoURL }: IloggedInUser) => {
     loggedInUser.email = email
     loggedInUser.name = name
     loggedInUser.photoURL = photoURL
     loggedInUser.uid = uid
+  }
+
+  const updateIsLoggedIn = (state: boolean) => {
+    isLoggedIn.value = state
   }
 
   /* -- action -- */
@@ -51,10 +57,12 @@ export const useAuthStore = defineStore('auth', () => {
             uid: user.uid,
             photoURL: user.photoURL
           })
+          updateIsLoggedIn(true)
         }).catch((error) => {
           const errorCode = error.code
           const errorMessage = error.message
           const email = error.email
+          updateIsLoggedIn(false)
           console.error('error code:', errorCode, 'error message:', errorMessage, 'your email:', email)
         })
       })
@@ -62,6 +70,7 @@ export const useAuthStore = defineStore('auth', () => {
         // Handle Errors here.
         const errorCode = error.code
         const errorMessage = error.message
+        updateIsLoggedIn(false)
 
         console.error('ERROR: firebase/auth \n errorCode', errorCode, '\nerrorMessage', errorMessage)
       })
@@ -78,6 +87,7 @@ export const useAuthStore = defineStore('auth', () => {
         uid: null,
         photoURL: null
       })
+      updateIsLoggedIn(false)
       router.go(0)
     }).catch((error) => {
       console.log(error)
@@ -104,6 +114,7 @@ export const useAuthStore = defineStore('auth', () => {
         uid: user!.uid,
         photoURL: user!.photoURL
       })
+      updateIsLoggedIn(true)
 
       return user
     } catch (error) {
@@ -113,6 +124,7 @@ export const useAuthStore = defineStore('auth', () => {
         uid: null,
         photoURL: null
       })
+      updateIsLoggedIn(false)
     }
   }
 
@@ -126,6 +138,7 @@ export const useAuthStore = defineStore('auth', () => {
         uid: user.uid,
         photoURL: user.photoURL
       })
+      updateIsLoggedIn(true)
     } else {
       updateLoggedInUser({
         name: null,
@@ -133,11 +146,13 @@ export const useAuthStore = defineStore('auth', () => {
         uid: null,
         photoURL: null
       })
+      updateIsLoggedIn(false)
     }
   })
 
   return {
     loggedInUser: readonly(loggedInUser),
+    isLoggedIn: readonly(isLoggedIn),
     trySignIn,
     trySignOut,
     checkAuthState
