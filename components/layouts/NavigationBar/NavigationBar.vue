@@ -71,6 +71,9 @@ const links = ref<ILinks[]>([
 
 <style lang="scss" scoped>
 #navigationBar {
+  grid-column: 1;
+  grid-row: 1/3;
+
   display: flex;
   justify-content: center;
 

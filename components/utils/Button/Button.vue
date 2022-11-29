@@ -114,7 +114,7 @@ const click = () => {
     left: 0%;
 
     border-radius: 8px;
-    background-color: #CCCCCC2D;
+    background-color: #B6B6B62D;
   }
 
   &:disabled {
