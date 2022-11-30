@@ -3,6 +3,7 @@ export {}
 declare global {
   const useAuthStore: typeof import('../../composables/firebase/authStore')['useAuthStore']
   const useColorStore: typeof import('../../composables/style/colorStore')['useColorStore']
+  const useSensingDataStore: typeof import('../../composables/firebase/sensingDataStore')['useSensingDataStore']
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
@@ -10,5 +11,6 @@ declare module 'vue' {
   interface ComponentCustomProperties {
     readonly useAuthStore: UnwrapRef<typeof import('../../composables/firebase/authStore')['useAuthStore']>
     readonly useColorStore: UnwrapRef<typeof import('../../composables/style/colorStore')['useColorStore']>
+    readonly useSensingDataStore: UnwrapRef<typeof import('../../composables/firebase/sensingDataStore')['useSensingDataStore']>
   }
 }

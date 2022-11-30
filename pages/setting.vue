@@ -1,6 +1,6 @@
 <template>
   <div id="setting">
-    setting
+    <SignInButton />
   </div>
 </template>
 

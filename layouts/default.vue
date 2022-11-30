@@ -38,6 +38,8 @@
     grid-column: 2;
     grid-row: 2;
     padding: 1em;
+
+    overflow: auto;
   }
 }
 </style>

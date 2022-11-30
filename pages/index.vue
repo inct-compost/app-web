@@ -1,7 +1,7 @@
 <template>
   <div id="index">
     index
-    <SignInButton />
+    <Chart />
   </div>
 </template>
 
