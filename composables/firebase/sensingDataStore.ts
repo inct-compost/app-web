@@ -1,5 +1,7 @@
 import {
   collection,
+  DocumentChange,
+  DocumentData,
   getDocs,
   getFirestore,
   onSnapshot,
@@ -51,6 +53,7 @@ export const useSensingDataStore = defineStore('sensingData', () => {
       onSnapshot(q, (snapshot) => {
         snapshot.docChanges().forEach((change) => {
           if (change.type === 'added') {
+            addSendingData(generateGotDataToSensingData(change))
             console.log('added:', change.doc.ref.path, change.doc.data())
           }
           if (change.type === 'modified') {
@@ -65,10 +68,36 @@ export const useSensingDataStore = defineStore('sensingData', () => {
   }
 
   /* -- other -- */
+  /**
+   * 今日のセンシングデータを保存しているコレクションのPathを生成する
+   */
   const todayCollectionName = computed(() => {
     const today = new Date()
     return today.getFullYear().toString() + today.getMonth().toString() + today.getDay().toString
   })
+
+  /**
+   * firestore から取得したデータをフロント上で扱うための値を追加して返す
+   * @param documentData onSnapshot で取得したデータ
+   * @returns センシングデータ
+   */
+  const generateGotDataToSensingData = (documentData: DocumentChange<DocumentData>): ISensingData => {
+    const docRefPath = documentData.doc.ref.path.split('/')
+    const yearMonthDay = docRefPath[2]
+    const hourMinute = docRefPath[3]
+
+    return {
+      id: yearMonthDay + hourMinute,
+      year: yearMonthDay.substring(0, 4),
+      month: yearMonthDay.substring(4, 6),
+      day: yearMonthDay.substring(6, 8),
+      hour: hourMinute.substring(0, 2),
+      minute: hourMinute.substring(2, 5),
+      addedDate: documentData.doc.data().date,
+      temperature: documentData.doc.data().temperature,
+      waterAmount: documentData.doc.data().humidity
+    }
+  }
 
   return {
     sensingDataList: readonly(sensingDataList),

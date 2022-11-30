@@ -16,6 +16,7 @@ registerSW()
 /* -- store -- */
 const colorStore = useColorStore()
 const authStore = useAuthStore()
+const sensingDataStore = useSensingDataStore()
 
 /* -- props, emit -- */
 
@@ -36,6 +37,7 @@ const layout = computed(() => {
 /* -- watch -- */
 
 /* -- life cycle -- */
+sensingDataStore.onSnapshotSensingData()
 </script>
 
 <style lang="scss">

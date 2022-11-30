@@ -1,10 +1,6 @@
 <template>
   <div id="index">
-    {{ sm }}
-    {{ lp }}
-    {{ pc }}
-    {{ displayType }}
-    {{ authStore.loggedInUser }}
+    index
     <SignInButton />
   </div>
 </template>
@@ -17,10 +13,9 @@
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
-const { sm, lp, pc, displayType, displayTypeMixin } = displayStatus()
+const { displayTypeMixin } = displayStatus()
 
 /* -- function -- */
-const authStore = useAuthStore()
 
 /* -- watch -- */
 

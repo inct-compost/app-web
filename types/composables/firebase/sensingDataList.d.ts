@@ -5,11 +5,11 @@ import { Timestamp } from "firebase/firestore";
  */
 export interface ISensingData {
   id: string
-  yaer: string
-  mounth: string
+  year: string
+  month: string
   day: string
   hour: string
-  min: string
+  minute: string
   addedDate: Timestamp
   temperature: number
   waterAmount: number

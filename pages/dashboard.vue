@@ -1,6 +1,7 @@
 <template>
   <div id="dashboard">
     dashboard
+    {{ sensingDataStore.sensingDataList }}
   </div>
 </template>
 
@@ -8,6 +9,7 @@
 /* -- type, interface -- */
 
 /* -- store -- */
+const sensingDataStore = useSensingDataStore()
 
 /* -- props, emit -- */
 
@@ -19,7 +21,8 @@
 
 /* -- life cycle -- */
 definePageMeta({
-  title: 'Dashboard'
+  title: 'Dashboard',
+  middleware: [ 'auth' ]
 })
 </script>
 
