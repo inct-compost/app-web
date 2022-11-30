@@ -1,7 +1,11 @@
 <template>
   <div id="dashboard">
-    dashboard
-    {{ sensingDataStore.sensingDataList }}
+    <div
+      v-for="sensingData in sensingDataStore.sensingDataList"
+      :key="sensingData.id"
+    >
+      {{ sensingData }}
+    </div>
   </div>
 </template>
 

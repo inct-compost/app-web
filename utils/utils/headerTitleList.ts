@@ -10,7 +10,7 @@ export const headerTitle = () => {
   const headetTitleList = ref<Array<IHeaderTitle>>([
     {
       path: '/',
-      title: '○○のコンポスト'
+      title: '○○のコンポストトイレ'
     },
     {
       path: '/dashboard',

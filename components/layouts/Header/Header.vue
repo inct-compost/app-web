@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <div class="left-contents" v-text="currentHeaderTitle.title" />
+    <div class="left-contents" v-text="currentHeaderTitle?.title" />
     <div class="right-contents">
       <Button
         is-icon

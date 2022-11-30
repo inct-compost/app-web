@@ -34,7 +34,7 @@ export const useSensingDataStore = defineStore('sensingData', () => {
    */
   const getSensingData = async () => {
     if (authStore.isLoggedIn) {
-      const docRef = collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', '20221118')
+      const docRef = collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', '20221102')
       const docSnap = await getDocs(docRef)
 
       docSnap.forEach((doc) => {
@@ -48,23 +48,21 @@ export const useSensingDataStore = defineStore('sensingData', () => {
    * センシングデータをリアルタイムの更新を取得する
    */
   const onSnapshotSensingData = () => {
-    if (authStore.isLoggedIn) {
-      const q = query(collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', '20221118'))
-      onSnapshot(q, (snapshot) => {
-        snapshot.docChanges().forEach((change) => {
-          if (change.type === 'added') {
-            addSendingData(generateGotDataToSensingData(change))
-            console.log('added:', change.doc.ref.path, change.doc.data())
-          }
-          if (change.type === 'modified') {
-            console.log('modified:', change.doc.id, change.doc.data())
-          }
-          if (change.type === 'removed') {
-            console.log('removed:', change.doc.id, change.doc.data())
-          }
-        })
+    const q = query(collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', '20221102'))
+    onSnapshot(q, (snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        if (change.type === 'added') {
+          addSendingData(generateGotDataToSensingData(change))
+          console.log('added:', change.doc.ref.path, change.doc.data())
+        }
+        if (change.type === 'modified') {
+          console.log('modified:', change.doc.id, change.doc.data())
+        }
+        if (change.type === 'removed') {
+          console.log('removed:', change.doc.id, change.doc.data())
+        }
       })
-    }
+    })
   }
 
   /* -- other -- */
@@ -98,6 +96,9 @@ export const useSensingDataStore = defineStore('sensingData', () => {
       waterAmount: documentData.doc.data().humidity
     }
   }
+
+  // リアルタイムの更新を取得する
+  onSnapshotSensingData()
 
   return {
     sensingDataList: readonly(sensingDataList),
