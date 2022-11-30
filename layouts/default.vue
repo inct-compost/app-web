@@ -1,7 +1,7 @@
 <template>
   <div id="default-layout">
     <NavigationBar />
-    <Header :header-title="currentHeaderTitle.title" />
+    <Header />
     <div class="contents">
       <slot />
     </div>
@@ -9,40 +9,13 @@
 </template>
 
 <script lang="ts" setup>
-import { IconNameType } from '~/types/icon/IconNameType'
-
 /* -- type, interface -- */
-interface IHeaderTitle {
-  path: string
-  icon?: IconNameType
-  title: string
-}
 
 /* -- store -- */
 
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
-const headetTitleList = ref<Array<IHeaderTitle>>([
-  {
-    path: '/',
-    title: '○○のコンポスト'
-  },
-  {
-    path: '/dashboard',
-    icon: 'dashboard',
-    title: 'ダッシュボード'
-  },
-  {
-    path: '/setting',
-    icon: 'settings',
-    title: '設定'
-  }
-])
-
-const currentHeaderTitle = computed(() => {
-  return headetTitleList.value.filter(headerTitle => headerTitle.path === useRoute().fullPath)[0]
-})
 
 /* -- function -- */
 

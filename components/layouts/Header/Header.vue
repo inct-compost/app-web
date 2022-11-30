@@ -1,26 +1,26 @@
 <template>
   <div id="header">
-    <div class="left-contents" v-text="headerTitle" />
+    <div class="left-contents" v-text="currentHeaderTitle.title" />
     <div class="right-contents">
+      <Button
+        is-icon
+        icon="notifications"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 /* -- type, interface -- */
-export interface IHeaderProps {
-  headerTitle: string;
-}
 
 /* -- store -- */
+const colorStore = useColorStore()
 
 /* -- props, emit -- */
-const props = withDefaults(defineProps<IHeaderProps>(), {
-  headerTitle: 'タイトル'
-})
 
 /* -- variable(ref, reactive, computed) -- */
-const colorStore = useColorStore()
+const { currentHeaderTitle } = headerTitle()
+const { displayTypeMixin } = displayStatus()
 
 /* -- function -- */
 
@@ -37,7 +37,7 @@ const colorStore = useColorStore()
   align-items: center;
   justify-content: space-between;
 
-  padding: 0px 1em;
+  padding: v-bind("displayTypeMixin({ sm: '0px 0px 1em 0px', lp: '0px 1em', pc: '0px 1em' })");
 
   .left-contents {
     font-weight: 500;

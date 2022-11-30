@@ -1,6 +1,7 @@
 <template>
   <div id="smartphone-layout">
     <div class="contents">
+      <Header />
       <slot />
     </div>
     <BottomNavigationBar />
