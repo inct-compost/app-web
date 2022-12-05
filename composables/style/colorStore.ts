@@ -4,14 +4,14 @@ export const useColorStore = defineStore('color', () => {
   /* -- state -- */
   const color = ref<ColorsInterface>({
     white: {
-      default: '#FCFCF9',
+      default: '#FFFFFF',
       lighten: {
         1: '#FFFFF1',
         2: '#FFFFEE'
       },
       darken: {
-        1: '#F8F8F8',
-        2: '#E9E9E0'
+        1: '#f6f8fa',
+        2: '#DDDDCB'
       }
     },
     black: {
@@ -72,7 +72,7 @@ export const useColorStore = defineStore('color', () => {
     theme: {
       text: '#030300',
       subText: '#676764',
-      background: '#F8F8F8',
+      background: '#f6f8fa',
       lighten: {
         1: '#676764',
         2: '#CBCAC7'
@@ -86,8 +86,8 @@ export const useColorStore = defineStore('color', () => {
         2: '#FFFFEE'
       },
       complementaryDarken: {
-        1: '#F8F8F8',
-        2: '#E9E9E0'
+        1: '#f6f8fa',
+        2: '#DDDDCB'
       }
     }
   })

@@ -40,8 +40,8 @@ const { displayTypeMixin } = displayStatus()
   padding: v-bind("displayTypeMixin({ sm: '0px 0px 1em 0px', lp: '0px 1em', pc: '0px 1em' })");
 
   .left-contents {
-    font-weight: 500;
-    font-size: 1.25em;
+    font-weight: bold;
+    font-size: 1.5em;
     color: v-bind("colorStore.color.theme.text");
   }
 
