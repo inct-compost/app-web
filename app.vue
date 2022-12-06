@@ -16,7 +16,6 @@ registerSW()
 /* -- store -- */
 const colorStore = useColorStore()
 const authStore = useAuthStore()
-useSensingDataStore()
 
 /* -- props, emit -- */
 

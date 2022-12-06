@@ -63,7 +63,7 @@ const vModel = useVModel(props, 'modelValue', emit)
 /* -- function -- */
 const select = (index: number) => {
   vModel.value = {
-    name: props.tabNames[index],
+    name: props.tabNames[index].name,
     index
   }
 

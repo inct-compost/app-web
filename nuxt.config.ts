@@ -36,6 +36,7 @@ export default defineNuxtConfig({
 
   components: {
     dirs: [
+      'components/dashboard',
       'components/layouts',
       'components/utils'
     ]

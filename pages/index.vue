@@ -13,6 +13,7 @@
 
 /* -- variable(ref, reactive, computed) -- */
 const { displayTypeMixin } = displayStatus()
+useSensingDataStore()
 
 /* -- function -- */
 

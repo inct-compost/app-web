@@ -212,7 +212,7 @@ onMounted(() => {
   display: flex;
   flex-flow: column;
 
-  width: 520px;
+  width: calc(640px - 2em - 3px);
   max-width: calc(100% - 2em - 3px);
   height: auto;
   padding: 1em;
