@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BottomNavigationBar: typeof import('./../../components/layouts/BottomNavigationBar/BottomNavigationBar.vue')['default']
     Button: typeof import('./../../components/utils/Button/Button.vue')['default']
+    Card: typeof import('./../../components/utils/Card/Card.vue')['default']
     Chart: typeof import('./../../components/utils/Chart/Chart.vue')['default']
     Header: typeof import('./../../components/layouts/Header/Header.vue')['default']
     Icon: typeof import('./../../components/utils/Icon/Icon.vue')['default']

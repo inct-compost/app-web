@@ -48,7 +48,7 @@ export interface IButtonProps {
 const props = withDefaults(defineProps<IButtonProps>(), {
   icon: undefined,
   iconProps: undefined,
-  color: '#5498ff',
+  color: '#5ccb96',
   size: 'normal',
   to: undefined
 })

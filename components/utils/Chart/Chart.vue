@@ -219,7 +219,7 @@ onMounted(() => {
 
   background-color: v-bind("colorStore.color.white.default");
   border: solid 1.5px v-bind("colorStore.color.theme.complementaryDarken[2]");
-  border-radius: 16px;
+  border-radius: 8px;
   aspect-ratio: 1;
 
   .title {
