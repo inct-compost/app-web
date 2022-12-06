@@ -93,6 +93,7 @@ const click = () => {
 
     position: relative;
     z-index: 1;
+    width: calc(100% - 0.8em);
     height: 24px;
     margin: 0rem 0.4em;
 
@@ -157,7 +158,7 @@ const click = () => {
     background-color: #CCCCCC00;
   }
 
-  &[fab] {
+  &[fab = true] {
     .text {
       height: calc(100% - 16px);
       padding: 8px;
@@ -194,7 +195,13 @@ const click = () => {
 
   &[size = "small"] {
     width: auto;
-    height: 24px;
+    height: 32px;
+
+    border-radius: 4px;
+
+    &:hover::before {
+      border-radius: 4px;
+    }
   }
 
   &[size = "normal"] {
