@@ -1,7 +1,6 @@
 <template>
   <div id="index">
     index
-    <Chart />
   </div>
 </template>
 

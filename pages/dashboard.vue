@@ -1,11 +1,31 @@
 <template>
   <div id="dashboard">
-    <Chart
-      chart-title="温度チャート"
-      title-icon="device_thermostat"
-      :sensing-data-list="sensingDataList"
-      data-name="temperature"
+    <Tab
+      v-model:model-value="selectedTab"
+      :tab-names="tabNames"
     />
+    <div
+      v-if="selectedTab.index === 0"
+      class="temperature-tab"
+    >
+      <Chart
+        chart-title="今日の温度チャート"
+        title-icon="device_thermostat"
+        :sensing-data-list="sensingDataList"
+        data-name="temperature"
+      />
+    </div>
+    <div
+      v-if="(selectedTab.index === 1)"
+      class="waterAmount-tab"
+    >
+      <Chart
+        chart-title="今日の水分量チャート"
+        title-icon="device_thermostat"
+        :sensing-data-list="sensingDataList"
+        data-name="waterAmount"
+      />
+    </div>
     <!-- <div
       v-for="sensingData in sensingDataStore.sensingDataList"
       :key="sensingData.id"
@@ -31,6 +51,11 @@ const sensingDataList = computed((): sensingDataListType => {
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
+const selectedTab = ref({
+  name: '土壌温度',
+  index: 0
+})
+const tabNames = ref([ '土壌温度', '水分量' ])
 
 /* -- function -- */
 
