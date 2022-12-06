@@ -13,7 +13,7 @@
         v-if="icon"
         :icon="icon"
         :color="!isIcon ? dependsLuminanceColor(color) : props.iconProps?.color"
-        size="24px"
+        :size="props.iconProps?.size"
         :fill="props.iconProps?.fill"
         :wght="props.iconProps?.wght"
         :style="!isIcon && 'margin-right: 0.4rem'"

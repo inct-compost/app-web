@@ -41,7 +41,7 @@ const { displayTypeMixin } = displayStatus()
 
   .left-contents {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.25rem;
     color: v-bind("colorStore.color.theme.text");
   }
 

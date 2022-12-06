@@ -53,7 +53,7 @@ type ECOptionType = echarts.ComposeOption<
 
 interface IChartProps {
   chartTitle: string,
-  titleIcon: IconNameType
+  titleIcon?: IconNameType
   sensingDataList: sensingDataListType
   dataName: 'temperature' | 'waterAmount' | 'all'
 }

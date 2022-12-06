@@ -3,13 +3,22 @@
     <Button
       v-for="(name, index) in tabNames"
       :key="index"
-      :color="'transprerent'"
+      color="transprerent"
+      :icon="name.icon"
+      :icon-props="{
+        size: '20px'
+      }"
       size="small"
       class="button"
       @click="select(index)"
     >
-      <span class="tab-name">
-        {{ name }}
+      <span
+        class="tab-name"
+        :style="{
+          fontWeight: vModel.index === index ? 600 : 500
+        }"
+      >
+        {{ name.name }}
       </span>
       <div
         v-if="vModel.index === index"
@@ -20,13 +29,18 @@
 </template>
 
 <script lang="ts" setup>
+import { IconNameType } from '~/types/icon/IconNameType'
+
 /* -- type, interface -- */
 export interface ITabProps {
   modelValue: {
     name: string
     index: number
   }
-  tabNames: Array<string>
+  tabNames: Array<{
+    name: string
+    icon: IconNameType
+  }>
 }
 
 export interface ITabEmits {
@@ -44,7 +58,7 @@ const emit = defineEmits<ITabEmits>()
 
 /* -- variable(ref, reactive, computed) -- */
 const vModel = useVModel(props, 'modelValue', emit)
-const selectBar = ref<HTMLElement>()
+// const selectBar = ref<HTMLElement>()
 
 /* -- function -- */
 const select = (index: number) => {
@@ -76,8 +90,7 @@ const select = (index: number) => {
     margin: 0px 1em;
 
     .tab-name{
-      font-weight: 700;
-      color: v-bind("colorStore.color.green.darken[2]");
+      font-weight: 500;
     }
   }
 

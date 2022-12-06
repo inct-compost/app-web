@@ -10,7 +10,6 @@
     >
       <Chart
         chart-title="今日の温度チャート"
-        title-icon="device_thermostat"
         :sensing-data-list="sensingDataList"
         data-name="temperature"
       />
@@ -21,7 +20,6 @@
     >
       <Chart
         chart-title="今日の水分量チャート"
-        title-icon="device_thermostat"
         :sensing-data-list="sensingDataList"
         data-name="waterAmount"
       />
@@ -37,25 +35,40 @@
 
 <script lang="ts" setup>
 import { sensingDataListType } from '~/types/composables/firebase/sensingDataList'
+import { IconNameType } from '~/types/icon/IconNameType'
 
 /* -- type, interface -- */
 
 /* -- store -- */
 const sensingDataStore = useSensingDataStore()
+
+/* -- props, emit -- */
+
+/* -- variable(ref, reactive, computed) -- */
 const sensingDataList = computed((): sensingDataListType => {
   return sensingDataStore.sensingDataList.map((sensingData) => {
     return sensingData
   })
 })
 
-/* -- props, emit -- */
-
-/* -- variable(ref, reactive, computed) -- */
 const selectedTab = ref({
   name: '土壌温度',
   index: 0
 })
-const tabNames = ref([ '土壌温度', '水分量' ])
+
+const tabNames = ref<Array<{
+    name: string
+    icon: IconNameType
+  }>>([
+    {
+      name: '土壌温度',
+      icon: 'device_thermostat'
+    },
+    {
+      name: '水分量',
+      icon: 'water_drop'
+    }
+  ])
 
 /* -- function -- */
 
