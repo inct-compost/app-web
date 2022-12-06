@@ -13,8 +13,8 @@
           :icon="link.icon"
           :to="link.path"
           :icon-props="{
-            fill: route.path === link.path ? true : false,
-            color: route.path === link.path ? colorStore.color.theme.text : colorStore.color.theme.darken[1]
+            fill: isSelectedPage(link.path) ? true : false,
+            color: isSelectedPage(link.path) ? colorStore.color.theme.text : colorStore.color.theme.darken[1]
           }"
         />
       </div>
@@ -60,6 +60,9 @@ const links = ref<ILinks[]>([
 ])
 
 /* -- function -- */
+const isSelectedPage = (path: string) => {
+  return route.path === path
+}
 
 /* -- watch -- */
 

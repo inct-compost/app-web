@@ -14,7 +14,8 @@
     "hygen:component": "hygen generator component",
     "hygen:composable": "hygen generator composable",
     "hygen:page": "hygen generator page",
-    "hygen:util": "hygen generator util"
+    "hygen:util": "hygen generator util",
+    "deploy": "firebase deploy --only hosting"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
