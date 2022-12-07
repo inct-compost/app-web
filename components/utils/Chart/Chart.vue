@@ -214,7 +214,7 @@ onMounted(() => {
 
   width: calc(640px - 2em - 3px);
   max-width: calc(100% - 2em - 3px);
-  height: auto;
+  max-height: calc(640px - 2em - 3px);
   padding: 1em;
 
   background-color: v-bind("colorStore.color.white.default");

@@ -14,12 +14,23 @@
         :sensing-data-list="sensingDataList"
         data-name="temperature"
       />
-      <DataTable />
-      <Button
-        icon="history"
-      >
-        過去のデータを見る
-      </Button>
+      <DataTable
+        :sensing-data-list="sensingDataList"
+        type="temperature"
+      />
+      <Card class="buttons">
+        <Icon
+          icon="smart_button"
+          :style="{
+            marginRight: '1em'
+          }"
+        />
+        <Button
+          icon="history"
+        >
+          過去のデータを見る
+        </Button>
+      </Card>
     </div>
 
     <div
@@ -32,12 +43,24 @@
         :sensing-data-list="sensingDataList"
         data-name="waterAmount"
       />
-      <Button
-        icon="history"
-        :color="colorStore.color.blue.default"
-      >
-        過去のデータを見る
-      </Button>
+      <DataTable
+        :sensing-data-list="sensingDataList"
+        type="waterAmount"
+      />
+      <Card class="buttons">
+        <Icon
+          icon="smart_button"
+          :style="{
+            marginRight: '1em'
+          }"
+        />
+        <Button
+          icon="history"
+          :color="colorStore.color.blue.default"
+        >
+          過去のデータを見る
+        </Button>
+      </Card>
     </div>
     <!-- <div
       v-for="sensingData in sensingDataStore.sensingDataList"
@@ -100,6 +123,12 @@ definePageMeta({
 
 <style lang="scss" scoped>
 #dashboard {
+
+  .buttons {
+    display: flex;
+    align-items: center;
+  }
+
   &.sm {
     .temperature-tab, .waterAmount-tab {
       display: flex;
@@ -141,8 +170,15 @@ definePageMeta({
       }
 
       #dataTable {
-        grid-row: 1/3;
+        grid-row: 2;
         grid-column: 2;
+      }
+
+      .buttons {
+        grid-row: 1;
+        grid-column: 2;
+
+        margin-bottom: 1em;
       }
     }
   }

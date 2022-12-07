@@ -32,9 +32,12 @@ export const useSensingDataStore = defineStore('sensingData', () => {
   /**
    * センシングデータを1回取得する
    */
-  const getSensingData = async () => {
+  const getSensingData = async (collectionId: string | 'now') => {
     if (authStore.isLoggedIn) {
-      const docRef = collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', '20221102')
+      let docRef = collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', collectionId)
+      if (!collectionId || collectionId === 'now') {
+        docRef = collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', todayCollectionName.value)
+      }
       const docSnap = await getDocs(docRef)
 
       docSnap.forEach((doc) => {
@@ -45,10 +48,11 @@ export const useSensingDataStore = defineStore('sensingData', () => {
   }
 
   /**
-   * センシングデータをリアルタイムの更新を取得する
+   * 今日の分のセンシングデータをリアルタイムで取得する
    */
   const onSnapshotSensingData = () => {
-    const q = query(collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', '20221102'))
+    console.log(todayCollectionName.value)
+    const q = query(collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', todayCollectionName.value))
     onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === 'added') {
@@ -71,7 +75,7 @@ export const useSensingDataStore = defineStore('sensingData', () => {
    */
   const todayCollectionName = computed(() => {
     const today = new Date()
-    return today.getFullYear().toString() + today.getMonth().toString() + today.getDay().toString
+    return today.getFullYear().toString() + ('0' + (today.getMonth() + 1)).slice(-2) + ('0' + today.getDate()).slice(-2)
   })
 
   /**
@@ -92,8 +96,8 @@ export const useSensingDataStore = defineStore('sensingData', () => {
       hour: hourMinute.substring(0, 2),
       minute: hourMinute.substring(2, 5),
       addedDate: documentData.doc.data().date,
-      temperature: documentData.doc.data().temperature,
-      waterAmount: documentData.doc.data().humidity
+      temperature: Math.round(documentData.doc.data().temperature * 10) / 10,
+      waterAmount: Math.round(documentData.doc.data().humidity * 10) / 10
     }
   }
 
