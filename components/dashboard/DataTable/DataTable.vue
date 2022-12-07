@@ -1,6 +1,6 @@
 <template>
   <div id="dataTable">
-    <Card height="calc(100% - 2rem - 3px)">
+    <Card class="dataTable-wrapper" height="calc(100% - 2rem - 3px)">
       <div class="title">
         <Icon
           icon="table_chart"
@@ -8,23 +8,29 @@
         />
         <p>データテーブル</p>
       </div>
-      <table>
-        <tr>
-          <th>日時</th>
-          <th>値</th>
-          <th>前値差</th>
-        </tr>
-        <tr
-          v-for="(sensingData, index) in sensingDataList"
-          :key="sensingData.id"
-        >
-          <td>{{ sensingData.month }}/{{ sensingData.day }}&ensp;{{ sensingData.hour }}:{{ sensingData.minute }}</td>
-          <td class="value">
-            {{ type === 'temperature' ? sensingData.temperature : sensingData.waterAmount }}
-          </td>
-          <td>{{ calculateBinaryDifference(index) }}</td>
-        </tr>
-      </table>
+      <div class="content">
+        <table>
+          <thead>
+            <tr>
+              <th>日時</th>
+              <th>値</th>
+              <th>前値差</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(sensingData, index) in sensingDataList"
+              :key="sensingData.id"
+            >
+              <td>{{ sensingData.month }}/{{ sensingData.day }}&ensp;{{ sensingData.hour }}:{{ sensingData.minute }}</td>
+              <td class="value">
+                {{ type === 'temperature' ? sensingData.temperature : sensingData.waterAmount }}
+              </td>
+              <td>{{ calculateBinaryDifference(index) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </Card>
   </div>
 </template>
@@ -46,6 +52,7 @@ const props = withDefaults(defineProps<IDataTableProps>(), {
 })
 
 /* -- variable(ref, reactive, computed) -- */
+const { sensingDataList } = toRefs(props)
 
 /* -- function -- */
 const calculateBinaryDifference = (index: number) => {
@@ -53,18 +60,18 @@ const calculateBinaryDifference = (index: number) => {
   const sensingDataListLength = props.sensingDataList.length
   if (sensingDataListLength) {
     if (props.type === 'temperature') {
-      const temprature = props.sensingDataList[props.sensingDataList!.length - index]?.temperature
-      if (sensingDataListLength === index + 1 || index === 0) {
+      const temprature = props.sensingDataList[index]?.temperature
+      if (index === 0) {
         return '-'
       } else {
-        binaryDifference = temprature - props.sensingDataList[props.sensingDataList!.length - index - 1]?.temperature
+        binaryDifference = temprature - props.sensingDataList[index - 1]?.temperature
       }
     } else if (props.type === 'waterAmount') {
-      const temprature = props.sensingDataList[props.sensingDataList!.length - index]?.waterAmount
-      if (sensingDataListLength === index + 1 || index === 0) {
+      const temprature = props.sensingDataList[index]?.waterAmount
+      if (index === 0) {
         return '-'
       } else {
-        binaryDifference = temprature - props.sensingDataList[props.sensingDataList!.length - index - 1]?.waterAmount
+        binaryDifference = temprature - props.sensingDataList[index - 1]?.waterAmount
       }
     }
   } else {
@@ -88,41 +95,76 @@ const calculateBinaryDifference = (index: number) => {
 
 <style lang="scss" scoped>
 #dataTable {
-  width: 100%;
-  height: 100%;
+  max-height: 680px;
 
-  .title {
-    display: flex;
+  .dataTable-wrapper {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
 
-    margin-bottom: 1rem;
-
-    p {
-      margin: 0px;
-      margin-left: 0.5rem;
-
-      color: v-bind("colorStore.color.theme.text");
-      font-weight: 600;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-  }
-
-  table {
+    position: relative;
     width: 100%;
+    max-height: calc(680px - 2em);
 
-    th {
-      padding: 1rem 0px;
+    overflow-y: hidden;
 
-      color: v-bind("colorStore.color.theme.subText");
-      text-align: start;
-      border-bottom: solid 1px v-bind("colorStore.color.theme.complementaryDarken[2]");
+    .title {
+      grid-row: 1;
+
+      display: flex;
+
+      margin-bottom: 1rem;
+
+      p {
+        margin: 0px;
+        margin-left: 0.5rem;
+
+        color: v-bind("colorStore.color.theme.text");
+        font-weight: 600;
+        font-family: 'Noto Sans JP', sans-serif;
+      }
     }
 
-    td {
-      padding: 1rem 0px;
-      text-align: start;
+    .content {
+      overflow-y: auto;
+    }
 
-      &.value {
-        font-weight: 700;
+    table {
+      grid-row: 2;
+
+      width: 100%;
+      max-height: 200px;
+
+      overflow-y: auto;
+
+      thead {
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: v-bind("colorStore.color.white.default");
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        padding: 1rem 0px;
+
+        color: v-bind("colorStore.color.theme.subText");
+        text-align: start;
+        border-bottom: solid 1px v-bind("colorStore.color.theme.complementaryDarken[2]");
+      }
+
+      td {
+        padding: 1rem 0px;
+        text-align: start;
+
+        &.value {
+          font-weight: 700;
+        }
+
+        overflow-y: auto;
       }
     }
   }

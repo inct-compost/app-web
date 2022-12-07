@@ -135,16 +135,10 @@ definePageMeta({
       flex-flow: column;
 
       #chart {
-        grid-row: 2;
-        grid-column: 1;
-
         margin-bottom: 1rem;
       }
 
       #dataTable {
-        grid-row: 1/3;
-        grid-column: 2;
-
         margin-bottom: 1rem;
       }
     }
