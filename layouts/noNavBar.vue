@@ -32,7 +32,7 @@
   height: 100%;
 
   .contents {
-    padding: 1em;
+    padding: 0em;
   }
 }
 </style>

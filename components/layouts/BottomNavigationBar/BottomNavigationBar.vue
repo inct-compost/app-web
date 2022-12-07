@@ -60,7 +60,12 @@ const links = ref<ILinks[]>([
 ])
 
 const openPage = computed(() => {
-  return links.value.filter(link => route.path === link.path)[0]
+  const matchPath = links.value.filter(link => route.path === link.path)[0]
+  return matchPath || {
+    name: 'top',
+    icon: 'home',
+    path: '/'
+  }
 })
 
 /* -- function -- */
