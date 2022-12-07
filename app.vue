@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Meta name="theme-color" :content="colorStore.color.theme.background" />
     <NuxtLayout :name="layout">
       <NuxtPage />
     </NuxtLayout>

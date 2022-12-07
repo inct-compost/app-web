@@ -4,7 +4,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview",
+    "preview": "yarn generate && nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint . --ext .ts,.vue",
     "lint:fix": "eslint . --ext .ts,.vue --fix",
@@ -15,7 +15,7 @@
     "hygen:composable": "hygen generator composable",
     "hygen:page": "hygen generator page",
     "hygen:util": "hygen generator util",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "yarn generate && firebase deploy --only hosting"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
