@@ -47,24 +47,26 @@ const nowWaterAmount = computed(() => {
 })
 
 const temperatureBinaryDifference = computed(() => {
-  const binaryDifference = nowTemprature.value - (props.sensingDataList.length ? props.sensingDataList[props.sensingDataList!.length - 2]?.temperature : 0)
+  let binaryDifference = nowTemprature.value - (props.sensingDataList.length ? props.sensingDataList[props.sensingDataList!.length - 2]?.temperature : 0)
+  binaryDifference = Math.floor(binaryDifference * 10) / 10
 
   if (binaryDifference > 0) {
     return `+${binaryDifference}`
   } else if (binaryDifference < 0) {
-    return `-${binaryDifference}`
+    return `${binaryDifference}`
   } else {
     return `±${binaryDifference}`
   }
 })
 
 const waterAmountBinaryDifference = computed(() => {
-  const binaryDifference = nowWaterAmount.value - (props.sensingDataList.length ? props.sensingDataList[props.sensingDataList!.length - 2]?.waterAmount : 0)
+  let binaryDifference = nowWaterAmount.value - (props.sensingDataList.length ? props.sensingDataList[props.sensingDataList!.length - 2]?.waterAmount : 0)
+  binaryDifference = Math.floor(binaryDifference * 10) / 10
 
   if (binaryDifference > 0) {
     return `+${binaryDifference}`
   } else if (binaryDifference < 0) {
-    return `-${binaryDifference}`
+    return `${binaryDifference}`
   } else {
     return `±${binaryDifference}`
   }

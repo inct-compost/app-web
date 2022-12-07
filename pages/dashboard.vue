@@ -13,10 +13,8 @@
         chart-title="今日の温度チャート"
         :sensing-data-list="sensingDataList"
         data-name="temperature"
-        :style="{
-          marginBottom: '1em'
-        }"
       />
+      <DataTable />
       <Button
         icon="history"
       >
@@ -33,9 +31,6 @@
         chart-title="今日の水分量チャート"
         :sensing-data-list="sensingDataList"
         data-name="waterAmount"
-        :style="{
-          marginBottom: '1em'
-        }"
       />
       <Button
         icon="history"
@@ -109,6 +104,46 @@ definePageMeta({
     .temperature-tab, .waterAmount-tab {
       display: flex;
       flex-flow: column;
+
+      #chart {
+        grid-row: 2;
+        grid-column: 1;
+
+        margin-bottom: 1rem;
+      }
+
+      #dataTable {
+        grid-row: 1/3;
+        grid-column: 2;
+
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &.lp, &.pc {
+    .temperature-tab, .waterAmount-tab {
+      /* 1388px未満はレイアウトが崩れる */
+      display: grid;
+      grid-template-columns: auto minmax(640px, 1fr);
+      grid-template-rows: auto auto;
+
+      #briefInfoCard {
+        grid-row: 1;
+        grid-column: 1;
+
+        margin-right: 1rem;
+      }
+
+      #chart {
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      #dataTable {
+        grid-row: 1/3;
+        grid-column: 2;
+      }
     }
   }
 }

@@ -7,7 +7,10 @@
 <script lang="ts" setup>
 /* -- type, interface -- */
 export interface ICardProps {
-  modelValue: any;
+  width: string
+  height: string
+  backgroundColor: string
+  borderColor: string
 }
 
 export interface ICardEmits {
@@ -15,17 +18,19 @@ export interface ICardEmits {
 }
 
 /* -- store -- */
-const colorStore = useColorStore()
 
 /* -- props, emit -- */
 const props = withDefaults(defineProps<ICardProps>(), {
-  modelValue: false
+  width: 'auto',
+  height: 'auto',
+  backgroundColor: '#FFFFFF',
+  borderColor: '#DDDDCB'
 })
 
 const emit = defineEmits<ICardEmits>()
 
 /* -- variable(ref, reactive, computed) -- */
-const vModel = useVModel(props, 'modelValue', emit)
+/* const vModel = useVModel(props, 'modelValue', emit) */
 
 /* -- function -- */
 
@@ -36,11 +41,13 @@ const vModel = useVModel(props, 'modelValue', emit)
 
 <style lang="scss" scoped>
 #card {
+  width: v-bind("props.width");
+  height: v-bind("props.height");
   max-width: calc(100% - 2em - 3px);
   padding: 1em;
 
-  background-color: v-bind("colorStore.color.white.default");
-  border: solid 1.5px v-bind("colorStore.color.theme.complementaryDarken[2]");
+  background-color: v-bind("props.backgroundColor");
+  border: solid 1.5px v-bind("props.borderColor");
   border-radius: 8px;
 }
 </style>
