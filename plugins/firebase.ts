@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { enableIndexedDbPersistence, getFirestore } from 'firebase/firestore'
+// import { connectFunctionsEmulator, getFunctions } from 'firebase/functions'
 
 export default defineNuxtPlugin(() => {
   const firebaseConfig = {
@@ -14,6 +15,9 @@ export default defineNuxtPlugin(() => {
 
   const app = initializeApp(firebaseConfig)
   const firestore = getFirestore(app)
+  // const functions = getFunctions(app)
+
+  // connectFunctionsEmulator(functions, 'localhost', 5001)
 
   enableIndexedDbPersistence(firestore)
     .catch((err) => {

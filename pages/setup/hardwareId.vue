@@ -6,6 +6,11 @@
       placeholder="例）00:00:5e:00:53:00"
     />
     <TextField
+      v-model:model-value="id"
+      label-text="コンポストトイレのID"
+      placeholder="例）GzD6ozqHvypv67VKkT4e"
+    />
+    <TextField
       v-model:model-value="pass"
       type="password"
       label-text="パスワード"
@@ -13,6 +18,7 @@
     />
     <Button
       icon="leak_add"
+      @click="submit"
     >
       連携する
     </Button>
@@ -20,6 +26,8 @@
 </template>
 
 <script lang="ts" setup>
+import { getFunctions, httpsCallable } from 'firebase/functions'
+
 /* -- type, interface -- */
 
 /* -- store -- */
@@ -27,10 +35,23 @@
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
+const functions = getFunctions()
+const addHardwareId = httpsCallable(functions, 'addHardwareId')
+
 const mac = ref('')
+const id = ref('')
 const pass = ref('')
 
 /* -- function -- */
+const submit = () => {
+  addHardwareId({
+    mac,
+    id,
+    password: pass
+  }).then(() => {
+    navigateTo('/', { replace: true })
+  })
+}
 
 /* -- watch -- */
 

@@ -72,7 +72,7 @@ const { displayType } = displayStatus()
 
   &.sm {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
 
     .title {
       border-bottom: solid 1px v-bind("colorStore.color.theme.subText");
