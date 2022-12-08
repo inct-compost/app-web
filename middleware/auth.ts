@@ -10,7 +10,7 @@ export default defineNuxtRouteMiddleware(async () => {
     } else {
       await accessibleHardwareIdsStore.getAccessibleHardwareIds()
 
-      if (accessibleHardwareIdsStore.accessibleHardwareIdList.length === 0 || accessibleHardwareIdsStore.accessibleHardwareIdList.length === 1) {
+      if (accessibleHardwareIdsStore.accessibleHardwareIdList.length === 0) {
         return navigateTo('/setup/hardwareId', { replace: true })
       }
     }

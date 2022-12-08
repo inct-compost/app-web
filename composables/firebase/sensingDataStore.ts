@@ -51,7 +51,6 @@ export const useSensingDataStore = defineStore('sensingData', () => {
    * 今日の分のセンシングデータをリアルタイムで取得する
    */
   const onSnapshotSensingData = () => {
-    console.log(todayCollectionName.value)
     const q = query(collection(db, 'sensingData', '0MkJJN50KeAeELphQgEq', todayCollectionName.value))
     onSnapshot(q, (snapshot) => {
       snapshot.docChanges().forEach((change) => {
