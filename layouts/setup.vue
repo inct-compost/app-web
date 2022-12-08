@@ -14,12 +14,19 @@
       </div>
       <div class="meta-title">
         <Icon
+          v-if="displayType !== 'sm'"
           icon="radio_button_checked"
+          :style="{
+            marginRight: '1rem'
+          }"
         />
         <h2>
           {{ route.meta.title }}
         </h2>
       </div>
+      <p>
+        {{ route.meta.text }}
+      </p>
     </div>
     <div class="contents">
       <slot />
@@ -31,6 +38,7 @@
 /* -- type, interface -- */
 
 /* -- store -- */
+const colorStore = useColorStore()
 
 /* -- props, emit -- */
 
@@ -57,6 +65,8 @@ const { displayType } = displayStatus()
 
     .title {
       grid-column: 1;
+
+      border-right: solid 1px v-bind("colorStore.color.theme.subText");
     }
   }
 
@@ -65,6 +75,8 @@ const { displayType } = displayStatus()
     grid-template-rows: 1fr 1fr;
 
     .title {
+      border-bottom: solid 1px v-bind("colorStore.color.theme.subText");
+
       p {
         margin-top: 0px;
 
@@ -76,6 +88,8 @@ const { displayType } = displayStatus()
 
   .title {
     align-self: center;
+
+    padding: 1rem;
 
     .title-text {
       display: flex;
@@ -89,12 +103,14 @@ const { displayType } = displayStatus()
     .meta-title {
       display: flex;
       align-items: center;
-
-      h2 {
-        margin-left: 1rem;
-      }
     }
   }
 
+  .contents {
+    align-self: center;
+    justify-self: center;
+
+    padding: 1em;
+  }
 }
 </style>

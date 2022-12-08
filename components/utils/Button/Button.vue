@@ -16,7 +16,7 @@
         :size="props.iconProps?.size"
         :fill="props.iconProps?.fill"
         :wght="props.iconProps?.wght"
-        :style="!isIcon && 'margin-right: 0.4rem'"
+        :style="!isIcon && 'margin-right: 1rem'"
       />
       <slot />
     </div>
@@ -93,9 +93,9 @@ const click = () => {
 
     position: relative;
     z-index: 1;
-    width: calc(100% - 0.8em);
+    width: calc(100% - 2em);
     height: 24px;
-    margin: 0rem 0.4em;
+    margin: 0rem 1em;
 
     text-align: center;
     font-size: 16px;
