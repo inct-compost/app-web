@@ -3567,6 +3567,16 @@
     "@unhead/schema" "1.0.3"
     hookable "^5.4.2"
 
+"@vee-validate/i18n@^4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@vee-validate/i18n/-/i18n-4.7.3.tgz#7b3a187ed83712fc48ce0f7b61f6cf4e0f38aa9e"
+  integrity sha512-Zgddr5azPiLrLFISJBmEL9l4PJoFAzfootWii5wxoVbTt3NnwcA/DobK8fLtfOeUtvh6aNwQgAAt548fe4MpKg==
+
+"@vee-validate/rules@^4.7.3":
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/@vee-validate/rules/-/rules-4.7.3.tgz#890ca1d3d7c30891914e20eac70c6c253dfec100"
+  integrity sha512-lC/nYA1U7XiE/ncikyzKOqsTAa1OJGza1757zahqoPD0s/66vIR3uBBDeBUNeCOrBoq9Ga20wOVEuiBIGvOZww==
+
 "@vercel/nft@^0.22.1":
   version "0.22.1"
   resolved "https://registry.yarnpkg.com/@vercel/nft/-/nft-0.22.1.tgz#0d91d2a21e3a7f0b23ce1550da9870eac4942828"
@@ -3673,7 +3683,7 @@
     "@vue/compiler-dom" "3.2.45"
     "@vue/shared" "3.2.45"
 
-"@vue/devtools-api@^6.4.5":
+"@vue/devtools-api@^6.1.4", "@vue/devtools-api@^6.4.5":
   version "6.4.5"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.4.5.tgz#d54e844c1adbb1e677c81c665ecef1a2b4bb8380"
   integrity sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==
@@ -13859,6 +13869,13 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+vee-validate@^4.7.3:
+  version "4.7.3"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.7.3.tgz#0200c2f1151d28d9fb6fdb6c59c01170146094be"
+  integrity sha512-1MwHLOzCrabSeChySZVVMamWStcucM1hHxapoebY9mJ7KWOvncMG19a7AlPl38zpE9pcD+G3CHKLvviGmTl5BQ==
+  dependencies:
+    "@vue/devtools-api" "^6.1.4"
 
 vfile-location@^3.0.0, vfile-location@^3.2.0:
   version "3.2.0"
