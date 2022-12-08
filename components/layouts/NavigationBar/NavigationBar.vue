@@ -64,9 +64,13 @@ const links = ref<ILinks[]>([
 
 /* -- function -- */
 const openPage = computed(() => {
-  return links.value.filter(link => route.path === link.path)[0]
+  const matchPath = links.value.filter(link => route.path === link.path)[0]
+  return matchPath || {
+    name: 'top',
+    icon: 'home',
+    path: '/'
+  }
 })
-
 /* -- watch -- */
 
 /* -- life cycle -- */

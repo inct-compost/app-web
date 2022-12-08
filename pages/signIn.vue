@@ -3,7 +3,9 @@
     <div class="title">
       <div class="title-text">
         <p>このアプリを使用することでコンポストトイレをより簡単に管理できます</p>
-        <p v-if="(displayType === 'lp' || displayType === 'pc')">ログインしてダッシュボードにアクセスしましょう！</p>
+        <p v-if="(displayType === 'lp' || displayType === 'pc')">
+          ログインしてダッシュボードにアクセスしましょう！
+        </p>
       </div>
       <img
         src="~/assets/screenshots/dashboard-screenshot.png"

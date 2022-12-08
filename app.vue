@@ -22,9 +22,14 @@ const authStore = useAuthStore()
 
 /* -- variable(ref, reactive, computed) -- */
 const { displayType } = displayStatus()
+const route = useRoute()
+
 const layout = computed(() => {
+  const isSetup = route.path.includes('/setup')
   if (!authStore.loggedInUser.uid) {
     return 'no-nav-bar'
+  } else if (isSetup) {
+    return 'setup'
   } else if (displayType.value === 'sm') {
     return 'smartphone'
   } else {
@@ -44,6 +49,7 @@ html, body {
   margin: 0px;
 
   font-family: 'Noto Sans JP', sans-serif;
+  overscroll-behavior-y: none;
 }
 
 #app {

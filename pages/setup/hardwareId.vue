@@ -1,8 +1,6 @@
 <template>
-  <div id="no-nav-bar-layout">
-    <div class="contents">
-      <slot />
-    </div>
+  <div id="hardwareId">
+    hardwareId
   </div>
 </template>
 
@@ -20,19 +18,13 @@
 /* -- watch -- */
 
 /* -- life cycle -- */
+definePageMeta({
+  title: 'コンポストトイレとの連携'
+})
 </script>
 
 <style lang="scss" scoped>
-#no-nav-bar-layout {
-  display: grid;
-  grid-template-columns: 1fr;
+#hardwareId {
 
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-  .contents {
-    padding: 0em;
-  }
 }
 </style>

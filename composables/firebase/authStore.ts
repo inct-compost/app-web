@@ -26,6 +26,9 @@ export const useAuthStore = defineStore('auth', () => {
     photoURL: null
   })
 
+  /**
+   * ログイン中かどうかのフラグ
+   */
   const isLoggedIn = ref<boolean>(false)
 
   /* -- mutation -- */

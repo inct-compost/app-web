@@ -1,6 +1,7 @@
 <template>
   <div id="index">
     index
+    {{ accessibleHardwareIdsStore.accessibleHardwareIdList }}
   </div>
 </template>
 
@@ -14,12 +15,17 @@
 /* -- variable(ref, reactive, computed) -- */
 const { displayTypeMixin } = displayStatus()
 useSensingDataStore()
+const accessibleHardwareIdsStore = useAccessibleHardwareIdsStore()
 
 /* -- function -- */
 
 /* -- watch -- */
 
 /* -- life cycle -- */
+onMounted(() => {
+  accessibleHardwareIdsStore.getAccessibleHardwareIds()
+})
+
 definePageMeta({
   title: 'Index',
   middleware: [ 'auth' ]

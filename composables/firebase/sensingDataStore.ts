@@ -57,13 +57,13 @@ export const useSensingDataStore = defineStore('sensingData', () => {
       snapshot.docChanges().forEach((change) => {
         if (change.type === 'added') {
           addSendingData(generateGotDataToSensingData(change))
-          console.log('added:', change.doc.ref.path, change.doc.data())
+          // console.log('added:', change.doc.ref.path, change.doc.data())
         }
         if (change.type === 'modified') {
-          console.log('modified:', change.doc.id, change.doc.data())
+          // console.log('modified:', change.doc.id, change.doc.data())
         }
         if (change.type === 'removed') {
-          console.log('removed:', change.doc.id, change.doc.data())
+          // console.log('removed:', change.doc.id, change.doc.data())
         }
       })
     })
