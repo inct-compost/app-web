@@ -18,6 +18,7 @@
     />
     <Button
       icon="leak_add"
+      :disabled="isSubmitting"
       @click="submit"
     >
       連携する
@@ -41,15 +42,23 @@ const addHardwareId = httpsCallable(functions, 'addHardwareId')
 const mac = ref('')
 const id = ref('')
 const pass = ref('')
+const isSubmitting = ref(false)
 
 /* -- function -- */
 const submit = () => {
+  isSubmitting.value = true
+
   addHardwareId({
     mac,
     id,
     password: pass
   }).then(() => {
+    isSubmitting.value = false
+
     navigateTo('/', { replace: true })
+  }).catch((err) => {
+    isSubmitting.value = false
+    console.error(err)
   })
 }
 

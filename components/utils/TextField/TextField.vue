@@ -57,7 +57,7 @@ const vModel = useVModel(props, 'modelValue', emit)
 /* -- watch -- */
 
 /* -- life cycle -- */
-const { value, errorMessage } = useField(vModel, 'required|min:4')
+const { value, errorMessage } = useField(vModel, 'required')
 </script>
 
 <style lang="scss" scoped>
