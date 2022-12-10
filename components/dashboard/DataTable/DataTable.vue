@@ -63,18 +63,18 @@ const calculateBinaryDifference = (index: number) => {
     if (props.type === 'temperature') {
       const temprature = props.sensingDataList[index]?.temperature
 
-      if (index === sensingDataListLength - 1) {
+      if (index === 0) { // index === sensingDataListLength - 1
         return '-'
       } else {
-        binaryDifference = temprature - props.sensingDataList[index + 1]?.temperature
+        binaryDifference = temprature - props.sensingDataList[index - 1]?.temperature // [index + 1]
       }
     } else if (props.type === 'waterAmount') {
       const temprature = props.sensingDataList[index]?.waterAmount
 
-      if (index === sensingDataListLength - 1) {
+      if (index === 0) { // index === sensingDataListLength - 1
         return '-'
       } else {
-        binaryDifference = temprature - props.sensingDataList[index + 1]?.waterAmount
+        binaryDifference = temprature - props.sensingDataList[index - 1]?.waterAmount // [index + 1]
       }
     }
   } else {
