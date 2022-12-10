@@ -1,20 +1,11 @@
-# <div style="text-align: center;">vue-demi-lib-template</div>
+# <div style="text-align: center;">inct-compost/app-web</div>
 <!-- <p align="center">
   <img src="/static/icon.png"  width="256" height="256" alt="nuxt-firebase logo">
 </p> -->
 
 ## Description
-UI Library development templates for vue2, vue3, nuxt2, nuxt3 using `vue-demi`
-
-## Features
-- [x] Library development projects using vite
-- [x] Project for testing with vue3(vite)
-- [x] Project for testing with vue2(nuxt)
-- [ ] Template project for library documentation (nuxt3)
-- [ ] Enable development with `tsx`
-- [ ] Automatic update of test projects
-- [ ] Introduction of storybook
-- [ ] Introduction of jest (in test project)
+IoTコンポスト向けハードウェア管理アプリケーション。コンポスト内の状態を監視することができたり、コンポストの遠隔操作を行うことができる。<br>
+Hardware management application for IoT composting. It can monitor the status inside the compost and remotely control the compost.
 
 ## Dependencies / DevDependencies
 | package name | version |
