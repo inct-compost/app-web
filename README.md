@@ -1,42 +1,59 @@
-# Nuxt 3 Minimal Starter
+# <div style="text-align: center;">vue-demi-lib-template</div>
+<!-- <p align="center">
+  <img src="/static/icon.png"  width="256" height="256" alt="nuxt-firebase logo">
+</p> -->
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Description
+UI Library development templates for vue2, vue3, nuxt2, nuxt3 using `vue-demi`
 
-## Setup
+## Features
+- [x] Library development projects using vite
+- [x] Project for testing with vue3(vite)
+- [x] Project for testing with vue2(nuxt)
+- [ ] Template project for library documentation (nuxt3)
+- [ ] Enable development with `tsx`
+- [ ] Automatic update of test projects
+- [ ] Introduction of storybook
+- [ ] Introduction of jest (in test project)
 
-Make sure to install the dependencies:
+## Dependencies / DevDependencies
+| package name | version |
+| -- | -- |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 
-```bash
-# yarn
-yarn install
+## Getting Started
 
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+#### 1. Install node_modules
+```md
+yarn
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
+#### 2. Start dev server
+```md
+yarn dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
+#### 3. Build this App
+```
+yarn generate
 ```
 
-Locally preview production build:
-
-```bash
-npm run preview
+```
+yarn preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Deploy Service
+[Firebase Hosting](https://firebase.google.com/products/hosting?gclid=Cj0KCQiA1sucBhDgARIsAFoytUuCQdfrUzumhsqOWLO6TncdTd959kbvy2HGpWO6AXQVvFlRpbuy0l4aAg9uEALw_wcB&gclsrc=aw.ds)
+
+## ScreenShot
+| Home | Dashboard | Setting |
+| -- | -- | -- |
+|  | ![screenshots](/public//screenshots/dashboard-screenshot.png) |
+
+----
