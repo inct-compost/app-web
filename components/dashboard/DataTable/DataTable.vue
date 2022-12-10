@@ -58,20 +58,23 @@ const { sensingDataList } = toRefs(props)
 const calculateBinaryDifference = (index: number) => {
   let binaryDifference = 0
   const sensingDataListLength = props.sensingDataList.length
+
   if (sensingDataListLength) {
     if (props.type === 'temperature') {
       const temprature = props.sensingDataList[index]?.temperature
-      if (index === 0) {
+
+      if (index === sensingDataListLength - 1) {
         return '-'
       } else {
-        binaryDifference = temprature - props.sensingDataList[index - 1]?.temperature
+        binaryDifference = temprature - props.sensingDataList[index + 1]?.temperature
       }
     } else if (props.type === 'waterAmount') {
       const temprature = props.sensingDataList[index]?.waterAmount
-      if (index === 0) {
+
+      if (index === sensingDataListLength - 1) {
         return '-'
       } else {
-        binaryDifference = temprature - props.sensingDataList[index - 1]?.waterAmount
+        binaryDifference = temprature - props.sensingDataList[index + 1]?.waterAmount
       }
     }
   } else {

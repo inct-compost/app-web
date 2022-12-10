@@ -70,6 +70,10 @@ const props = withDefaults(defineProps<IChartProps>(), {
 /* -- variable(ref, reactive, computed) -- */
 const { sensingDataList, dataName } = toRefs(props)
 
+const sensingDataListLength = computed(() => {
+  return sensingDataList.value.length
+})
+
 const option = computed(() => {
   const baseOption: ECOptionType = {
     grid: {
@@ -95,15 +99,15 @@ const option = computed(() => {
         type: 'inside',
         filterMode: 'none',
         xAxisIndex: [ 0 ],
-        startValue: 0,
-        endValue: 5
+        startValue: sensingDataListLength.value - 5,
+        endValue: sensingDataListLength.value
       },
       {
         show: true,
         type: 'inside',
         filterMode: 'none',
         yAxisIndex: [ 0 ],
-        startValue: '-5°C',
+        startValue: '0°C',
         endValue: '20°C'
       }
     ]

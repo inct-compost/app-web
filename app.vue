@@ -50,6 +50,23 @@ html, body {
 
   font-family: 'Noto Sans JP', sans-serif;
   overscroll-behavior-y: none;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background-color: #F0F0F0;
+      border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: 100px;
+    background-color: #676764;
+    background-clip: content-box;
+  }
 }
 
 #app {
