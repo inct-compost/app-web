@@ -1,7 +1,7 @@
 <template>
   <div id="smartphone-layout">
+    <Header />
     <div class="contents">
-      <Header />
       <slot />
     </div>
     <BottomNavigationBar />
@@ -27,7 +27,7 @@
 <style lang="scss" scoped>
 #smartphone-layout {
   display: grid;
-  grid-template-rows: 1fr 64px;
+  grid-template-rows: 56px 1fr 64px;
 
   position: relative;
   width: 100%;

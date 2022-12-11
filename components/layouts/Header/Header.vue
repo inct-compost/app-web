@@ -37,7 +37,7 @@ const { displayTypeMixin } = displayStatus()
   align-items: center;
   justify-content: space-between;
 
-  padding: v-bind("displayTypeMixin({ sm: '0px 0px 1em 0px', lp: '0px 1em', pc: '0px 1em' })");
+  padding: v-bind("displayTypeMixin({ sm: '1em 1em 1em 1em', lp: '0px 1em', pc: '0px 1em' })");
 
   .left-contents {
     font-weight: bold;
