@@ -19,5 +19,6 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SignInButton: typeof import('./../../components/utils/SignInButton/SignInButton.vue')['default']
     Tab: typeof import('./../../components/utils/Tab/Tab.vue')['default']
+    TextField: typeof import('./../../components/utils/TextField/TextField.vue')['default']
   }
 }
