@@ -51,6 +51,6 @@ yarn preview
 ## ScreenShot
 | Home | Dashboard | Setting |
 | -- | -- | -- |
-|  | ![screenshots](/public//screenshots/dashboard-screenshot.png) |
+| ![home-screenshot](https://user-images.githubusercontent.com/49429291/210946177-675dcbca-1e91-4fc3-926a-b99c51cffedd.png) | ![screenshots](/public//screenshots/dashboard-screenshot.png) |
 
 ----
