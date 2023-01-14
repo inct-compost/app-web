@@ -27,14 +27,14 @@
 <style lang="scss" scoped>
 #smartphone-layout {
   display: grid;
-  grid-template-rows: 56px 1fr;
+  grid-template-rows: 64px 1fr;
 
   position: relative;
   width: 100%;
   height: 100%;
 
   .contents {
-    padding: 1em;
+    padding: 1em 2em;
     padding-bottom: 64px;
 
     overflow: auto;

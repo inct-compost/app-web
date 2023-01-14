@@ -53,8 +53,8 @@ html, body {
   overscroll-behavior-y: none;
 
   ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -63,9 +63,9 @@ html, body {
   }
 
   ::-webkit-scrollbar-thumb {
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 100px;
-    background-color: #676764;
+    background-color: #C5C5C5;
     background-clip: content-box;
   }
 }

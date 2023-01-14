@@ -12,6 +12,7 @@
 /* -- type, interface -- */
 
 /* -- store -- */
+useSensingDataStore()
 
 /* -- props, emit -- */
 
@@ -37,7 +38,7 @@
   .contents {
     grid-column: 2;
     grid-row: 2;
-    padding: 1em;
+    padding: 2em;
 
     overflow: auto;
   }

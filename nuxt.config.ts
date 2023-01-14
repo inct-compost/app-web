@@ -13,7 +13,7 @@ export default defineNuxtConfig({
         { name: 'description', content: '' }
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/icons/compost-logo-circle.ico' },
+        { rel: 'icon', type: 'image/png', href: '/icons/icon-512x512.png' },
         { rel: 'apple-touch-icon', href: '/apple_touch_icon.png', sizes: '180x180' },
         { rel: 'mask-icon', color: '#FCFCF9', href: '/mask_icon.svg' },
         {
@@ -52,6 +52,7 @@ export default defineNuxtConfig({
   components: {
     dirs: [
       'components/dashboard',
+      'components/index',
       'components/layouts',
       'components/utils'
     ]

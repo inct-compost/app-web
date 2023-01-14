@@ -19,6 +19,23 @@ export const useSensingDataStore = defineStore('sensingData', () => {
    */
   const sensingDataList = ref<sensingDataListType>([])
 
+  /* -- getter -- */
+  const nowWaterAmount = computed(() => {
+    if (sensingDataList.value.length) {
+      return sensingDataList.value[sensingDataList.value.length - 1].waterAmount
+    } else {
+      return null
+    }
+  })
+
+  const nowTemperature = computed(() => {
+    if (sensingDataList.value.length) {
+      return sensingDataList.value[sensingDataList.value.length - 1].temperature
+    } else {
+      return null
+    }
+  })
+
   /* -- mutation -- */
   /**
    * sensingDataList に引数のセンシングデータを追加する
@@ -108,6 +125,8 @@ export const useSensingDataStore = defineStore('sensingData', () => {
 
   return {
     sensingDataList: readonly(sensingDataList),
+    nowWaterAmount,
+    nowTemperature,
     todayCollectionName,
     addSendingData,
     getSensingData,
