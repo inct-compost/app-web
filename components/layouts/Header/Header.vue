@@ -39,8 +39,6 @@ const { displayTypeMixin } = displayStatus()
 
   padding: v-bind("displayTypeMixin({ sm: '1em 2em 1em 2em', lp: '0px 2em', pc: '0px 2em' })");
 
-  border-bottom: solid v-bind("currentHeaderTitle?.path !== '/' && '0.5px'") v-bind("colorStore.color.theme.lighten[2]");
-
   .left-contents {
     font-weight: bold;
     font-size: 1rem;

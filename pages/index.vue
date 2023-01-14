@@ -29,6 +29,7 @@
     <Button
       icon="dashboard"
       :color="colorStore.color.theme.text"
+      to="/dashboard"
     >
       ダッシュボードで詳細を見る
     </Button>
