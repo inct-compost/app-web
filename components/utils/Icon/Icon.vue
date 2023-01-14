@@ -37,7 +37,6 @@ const colorStore = useColorStore()
 
 /* -- variable(ref, reactive, computed) -- */
 const iconColor = computed(() => {
-  console.log(props.color)
   return props.color ? props.color : colorStore.color.theme.subText
 })
 
