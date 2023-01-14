@@ -18,7 +18,9 @@
         :wght="500"
         :style="!isIcon && 'margin-right: 0.75rem'"
       />
-      <slot />
+      <p>
+        <slot />
+      </p>
     </div>
   </button>
 </template>
@@ -99,9 +101,14 @@ const click = () => {
 
     text-align: center;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     color: v-bind("props.color === 'transparent' ? colorStore.color.theme.text : dependsLuminanceColor(props.color)");
     white-space: nowrap;
+
+    p {
+      vertical-align: text-top;
+      margin: 0px;
+    }
 
     span {
       line-height: 24px;
