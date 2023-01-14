@@ -27,7 +27,7 @@
 <style lang="scss" scoped>
 #smartphone-layout {
   display: grid;
-  grid-template-rows: 56px 1fr 64px;
+  grid-template-rows: 56px 1fr;
 
   position: relative;
   width: 100%;
@@ -35,6 +35,7 @@
 
   .contents {
     padding: 1em;
+    padding-bottom: 64px;
 
     overflow: auto;
     overflow-wrap: break-word;

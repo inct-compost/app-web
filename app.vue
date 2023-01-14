@@ -38,6 +38,7 @@ const layout = computed(() => {
 })
 
 /* -- function -- */
+useSvh()
 
 /* -- watch -- */
 
@@ -70,8 +71,9 @@ html, body {
 }
 
 #app {
-  height: 100vh;
   width: 100vw;
+  height: calc(var(--svh, 1vh) * 100);
+  max-height: calc(var(--svh, 1vh) * 100);
   background-color: v-bind("colorStore.color.theme.background");
   color: v-bind("colorStore.color.theme.text");
 }

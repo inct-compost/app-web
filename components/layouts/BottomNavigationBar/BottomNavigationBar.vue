@@ -81,9 +81,15 @@ const openPage = computed(() => {
   align-items: center;
   justify-content: center;
 
+  position: absolute;
+  width: 100%;
+  height: 64px;
+  left: 0px;
+  bottom: 0px;
   padding: 0px 2em;
 
-  border-top: solid 1px v-bind("colorStore.color.theme.lighten[2]");
+  background: linear-gradient(180deg, #F3F3F3 0%, rgba(243, 243, 243, 0) 0.01%, rgba(243, 243, 243, 0.8) 35.42%, #F3F3F3 100%);
+  box-sizing: border-box;
 
   .buttons {
     display: flex;
