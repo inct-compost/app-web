@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Meta name="theme-color" :content="colorStore.color.theme.background" />
+    <NuxtLoadingIndicator />
     <NuxtLayout :name="layout">
       <NuxtPage />
     </NuxtLayout>
@@ -8,7 +9,6 @@
 </template>
 
 <script lang="ts" setup>
-import 'material-symbols'
 import { registerSW } from 'virtual:pwa-register'
 
 registerSW()
