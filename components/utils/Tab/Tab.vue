@@ -88,7 +88,7 @@ const select = (index: number) => {
   padding: 0.25rem 1.25rem;
 
   transform: translateX(-50%);
-  background-color: v-bind("colorStore.color.theme.text + 'd0'");
+  background-color: v-bind("colorStore.color.theme.text + 'e0'");
   border-radius: 0.5rem;
 
   .button {
