@@ -1,6 +1,7 @@
 <template>
   <div id="setting">
     <SignInButton />
+    <ColorModeButton />
   </div>
 </template>
 

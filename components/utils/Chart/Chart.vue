@@ -221,7 +221,7 @@ onMounted(() => {
   max-height: calc(640px - 2em - 3px);
   padding: 1em;
 
-  background-color: v-bind("colorStore.color.white.default");
+  background-color: v-bind("colorStore.color.theme.card");
   border: solid 1.5px v-bind("colorStore.color.theme.complementaryDarken[2]");
   border-radius: 8px;
   aspect-ratio: 1;

@@ -144,7 +144,7 @@ const calculateBinaryDifference = (index: number) => {
         top: 0;
         left: 0;
         z-index: 1;
-        background-color: v-bind("colorStore.color.white.default");
+        background-color: v-bind("colorStore.color.theme.card");
       }
 
       th {

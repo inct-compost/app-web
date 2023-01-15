@@ -17,6 +17,7 @@ registerSW()
 /* -- store -- */
 const colorStore = useColorStore()
 const authStore = useAuthStore()
+const colorModeStore = useColorModeStore()
 
 /* -- props, emit -- */
 
@@ -38,11 +39,11 @@ const layout = computed(() => {
 })
 
 /* -- function -- */
-useSvh()
 
 /* -- watch -- */
 
 /* -- life cycle -- */
+useSvh()
 </script>
 
 <style lang="scss">
@@ -58,15 +59,19 @@ html, body {
   }
 
   ::-webkit-scrollbar-track {
-      background-color: #F0F0F0;
-      border-radius: 100px;
+    background-color: transparent;
+    border-radius: 2px;
   }
 
   ::-webkit-scrollbar-thumb {
     border: 2px solid transparent;
-    border-radius: 100px;
-    background-color: #C5C5C5;
+    border-radius: 8px;
+    background-color: v-bind("colorModeStore.colorMode === 'dark' ? colorStore.color.black.lighten[1] : colorStore.color.black.lighten[1]");
     background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    display: none;
   }
 }
 

@@ -19,6 +19,7 @@ export interface ColorsInterface {
     text: string
     subText: string
     background: string
+    card: string
     lighten: {
       [index: number]: string
     }

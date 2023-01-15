@@ -2,6 +2,7 @@
   <div
     v-if="sm"
     id="bottomNavigationBar"
+    :class="colorModeStore.colorMode"
   >
     <div class="buttons">
       <div
@@ -34,6 +35,7 @@ interface ILinks {
 
 /* -- store -- */
 const colorStore = useColorStore()
+const colorModeStore = useColorModeStore()
 
 /* -- props, emit -- */
 
@@ -82,14 +84,22 @@ const openPage = computed(() => {
   justify-content: center;
 
   position: absolute;
+  z-index: 99;
   width: 100%;
   height: 64px;
   left: 0px;
   bottom: 0px;
   padding: 0px 2em;
 
-  background: linear-gradient(180deg, #F3F3F3 0%, rgba(243, 243, 243, 0) 0.01%, rgba(243, 243, 243, 0.8) 35.42%, #F3F3F3 100%);
   box-sizing: border-box;
+
+  &.light {
+    background: linear-gradient(180deg, #f3f3f300 0%, #f3f3f399 31.25%, #f3f3f3f2 65.18%, #F3F3F3 100%);
+  }
+
+  &.dark {
+    background: linear-gradient(180deg, #1A1A1A00 0%, #1A1A1A99 31.25%, #1A1A1Af2 65.18%, #1A1A1A 100%);
+  }
 
   .buttons {
     display: flex;

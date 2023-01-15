@@ -124,6 +124,8 @@ definePageMeta({
 <style lang="scss" scoped>
 #dashboard {
 
+  padding-bottom: calc(32px + 0.5rem + 0.8rem + 1rem);
+
   .buttons {
     display: flex;
     align-items: center;

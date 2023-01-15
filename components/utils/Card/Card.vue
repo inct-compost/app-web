@@ -9,8 +9,8 @@
 export interface ICardProps {
   width: string
   height: string
-  backgroundColor: string
-  borderColor: string
+  backgroundColor?: string
+  borderColor?: string
 }
 
 export interface ICardEmits {
@@ -18,16 +18,15 @@ export interface ICardEmits {
 }
 
 /* -- store -- */
+const colorStore = useColorStore()
 
 /* -- props, emit -- */
 const props = withDefaults(defineProps<ICardProps>(), {
   width: 'auto',
-  height: 'auto',
-  backgroundColor: '#FFFFFF',
-  borderColor: '#DDDDCB'
+  height: 'auto'
 })
 
-const emit = defineEmits<ICardEmits>()
+defineEmits<ICardEmits>()
 
 /* -- variable(ref, reactive, computed) -- */
 /* const vModel = useVModel(props, 'modelValue', emit) */
@@ -46,8 +45,8 @@ const emit = defineEmits<ICardEmits>()
   max-width: calc(100% - 2em - 3px);
   padding: 1em;
 
-  background-color: v-bind("props.backgroundColor");
-  border: solid 1.5px v-bind("props.borderColor");
+  background-color: v-bind("props.backgroundColor ? props.backgroundColor : colorStore.color.theme.card");
+  border: solid 1.5px v-bind("props.borderColor ? props.borderColor : colorStore.color.theme.complementaryDarken[2]");
   border-radius: 8px;
 }
 </style>

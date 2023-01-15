@@ -11,7 +11,8 @@ export const useColorStore = defineStore('color', () => {
       },
       darken: {
         1: '#f6f8fa',
-        2: '#DDDDCB'
+        2: '#E2E7EC',
+        3: '#CBCCDD'
       }
     },
     black: {
@@ -22,7 +23,8 @@ export const useColorStore = defineStore('color', () => {
       },
       darken: {
         1: '#4D4D4D',
-        2: '#2C2C2C'
+        2: '#2C2C2C',
+        3: '#1A1A1A'
       }
     },
     red: {
@@ -73,6 +75,7 @@ export const useColorStore = defineStore('color', () => {
       text: '#030300',
       subText: '#676764',
       background: '#f6f8fa',
+      card: '#FFFFFF',
       lighten: {
         1: '#676764',
         2: '#CBCAC7'
@@ -98,13 +101,15 @@ export const useColorStore = defineStore('color', () => {
       text: color.value.black.default,
       subText: color.value.black.lighten[1],
       background: color.value.white.darken[1],
+      card: color.value.white.default,
       lighten: {
         1: color.value.black.lighten[1],
         2: color.value.black.lighten[2]
       },
       darken: {
         1: color.value.black.darken[1],
-        2: color.value.black.darken[2]
+        2: color.value.black.darken[2],
+        3: color.value.black.darken[3]
       },
       complementaryLighten: {
         1: color.value.white.lighten[1],
@@ -121,7 +126,8 @@ export const useColorStore = defineStore('color', () => {
     color.value.theme = {
       text: color.value.white.darken[2],
       subText: color.value.black.lighten[2],
-      background: color.value.black.darken[2],
+      background: color.value.black.darken[3],
+      card: color.value.black.darken[2],
       lighten: {
         1: color.value.white.lighten[1],
         2: color.value.white.lighten[2]
@@ -136,7 +142,8 @@ export const useColorStore = defineStore('color', () => {
       },
       complementaryDarken: {
         1: color.value.black.darken[1],
-        2: color.value.black.darken[2]
+        2: color.value.black.darken[2],
+        3: color.value.black.darken[3]
       }
     }
   }
