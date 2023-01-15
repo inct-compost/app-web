@@ -92,7 +92,7 @@ export const useSensingDataStore = defineStore('sensingData', () => {
   const todayCollectionName = computed(() => {
     // 🐈デモ用に取得するデータの日付を固定している ※後で必ずもとに戻すこと！
 
-    return '20221221'
+    return '20221208'
     // const today = new Date()
     // return today.getFullYear().toString() + ('0' + (today.getMonth() + 1)).slice(-2) + ('0' + today.getDate()).slice(-2)
   })

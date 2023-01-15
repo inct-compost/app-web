@@ -8,7 +8,7 @@
         </p>
       </div>
       <img
-        src="~/assets/screenshots/dashboard-screenshot.png"
+        src="~/public/screenshots/dashboard-screenshot.png"
         alt="dashboard-screenshot"
         class="screenshot"
       >
@@ -86,7 +86,9 @@ definePageMeta({
       position: absolute;
       top: 20%;
       left: 50%;
+
       transform: translateX(-50%);
+      color: v-bind("colorStore.color.black.default");
     }
 
     .screenshot {

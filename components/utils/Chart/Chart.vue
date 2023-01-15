@@ -79,9 +79,9 @@ const sensingDataListLength = computed(() => {
 const option = computed(() => {
   const baseOption: ECOptionType = {
     grid: {
-      top: 16,
+      top: 45,
       bottom: 40,
-      left: 45,
+      left: 0,
       right: 40
     },
     tooltip: {

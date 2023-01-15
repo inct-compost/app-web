@@ -18,11 +18,16 @@
     />
     <Button
       icon="leak_add"
+      fit-content
       :disabled="isSubmitting"
+      :style="{
+        marginBottom: '1rem'
+      }"
       @click="submit"
     >
       連携する
     </Button>
+    <SignInButton />
   </div>
 </template>
 
@@ -65,6 +70,14 @@ const submit = () => {
 /* -- watch -- */
 
 /* -- life cycle -- */
+onMounted(() => {
+  const authStore = useAuthStore()
+
+  if (!authStore.isLoggedIn) {
+    navigateTo('/signIn')
+  }
+})
+
 definePageMeta({
   title: 'コンポストトイレとの連携',
   text: 'あなたのコンポストをこのアカウントと連携します。コンポストトイレに記載されている「macアドレス」と、設定されている「パスワード」を入力してください'

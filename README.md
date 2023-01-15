@@ -7,6 +7,15 @@
 IoTコンポスト向けハードウェア管理アプリケーション。コンポスト内の状態を監視することができたり、コンポストの遠隔操作を行うことができる。<br>
 Hardware management application for IoT composting. It can monitor the status inside the compost and remotely control the compost.
 
+## 🔊 Announce
+このアプリは、専用のIDとパスワードがないと、ホーム画面やダッシュボード画面にアクセスすることができません。<br>
+それらの画面を見てみたい場合は、以下のメールアドレスに連絡してください。<br>
+This application requires a special ID and password to access the home and dashboard screens.<br>
+If you would like to see those screens, please contact us at the email address below.<br>
+`
+Gmail: kcattdev@gmail.com
+`
+
 ## Dependencies / DevDependencies
 | package name | version |
 | -- | -- |
@@ -51,6 +60,6 @@ yarn preview
 ## ScreenShot
 | Home | Dashboard | Setting |
 | -- | -- | -- |
-| ![home-screenshot](https://user-images.githubusercontent.com/49429291/210946177-675dcbca-1e91-4fc3-926a-b99c51cffedd.png) | ![screenshots](/public//screenshots/dashboard-screenshot.png) |
+| ![home-screenshot](https://github.com/inct-compost/app-web/blob/main/public/screenshots/home-screenshot.png?raw=true) | ![screenshots](https://github.com/inct-compost/app-web/blob/main/public/screenshots/dashboard-screenshot.png?raw=true) |
 
 ----
