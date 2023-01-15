@@ -81,7 +81,7 @@ const option = computed(() => {
     grid: {
       top: 16,
       bottom: 40,
-      left: 40,
+      left: 45,
       right: 40
     },
     tooltip: {
