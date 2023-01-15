@@ -85,7 +85,5 @@ const openPage = computed(() => {
   justify-content: center;
 
   padding: 2em 0px;
-
-  border-right: solid 1px v-bind("colorStore.color.theme.lighten[2]");
 }
 </style>

@@ -7,6 +7,7 @@
       <div class="briefInfoCard">
         <Icon
           :icon="type === 'temperature' ? 'device_thermostat' : 'water_drop'"
+          :color="colorStore.color.theme.text"
           size="32px"
         />
         <span
@@ -37,6 +38,7 @@ export interface IBriefInfoCardProps {
 }
 
 /* -- store -- */
+const colorStore = useColorStore()
 
 /* -- props, emit -- */
 const props = withDefaults(defineProps<IBriefInfoCardProps>(), {

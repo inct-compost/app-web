@@ -1,5 +1,9 @@
 <template>
-  <div id="index" :class="displayType">
+  <div
+    v-if="displayType === 'sm'"
+    id="index"
+    :class="displayType"
+  >
     <MaturityLevelCard />
     <div class="recent-conditions-card">
       <span class="title">現在の状態</span>
@@ -37,9 +41,31 @@
       ダッシュボードで詳細を見る
     </Button>
   </div>
+  <div
+    v-else
+    id="index"
+    :class="displayType"
+  >
+    <MaturityLevelCard />
+    <div class="data-list">
+      <BriefInfoCard type="temperature" :sensing-data-list="sensingDataList" />
+      <BriefInfoCard type="waterAmount" :sensing-data-list="sensingDataList" />
+      <Button
+        icon="dashboard"
+        :icon-props="{
+          fill: true
+        }"
+        :color="colorStore.color.theme.text"
+        to="/dashboard"
+      >
+        ダッシュボードで詳細を見る
+      </Button>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
+import { sensingDataListType } from '~/types/composables/firebase/sensingDataList'
 
 /* -- type, interface -- */
 
@@ -51,6 +77,12 @@ const sensingDataStore = useSensingDataStore()
 
 /* -- variable(ref, reactive, computed) -- */
 const { displayType } = displayStatus()
+
+const sensingDataList = computed((): sensingDataListType => {
+  return sensingDataStore.sensingDataList.map((sensingData) => {
+    return sensingData
+  })
+})
 
 const temperatureBinaryDifference = computed(() => {
   let binaryDifference = sensingDataStore.nowTemperature! - (sensingDataStore.sensingDataList.length ? sensingDataStore.sensingDataList[sensingDataStore.sensingDataList!.length - 2]?.temperature : 0)
@@ -129,6 +161,14 @@ definePageMeta({
       }
     }
 
+  }
+
+  .data-list {
+    display: flex;
+    flex-flow: column;
+    row-gap: 2rem;
+
+    padding: 1.5rem 1rem;
   }
 
   &.lp, &.pc {

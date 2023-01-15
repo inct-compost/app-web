@@ -19,8 +19,8 @@ const colorStore = useColorStore()
 /* -- props, emit -- */
 
 /* -- variable(ref, reactive, computed) -- */
-const { currentHeaderTitle } = headerTitle()
-const { displayTypeMixin } = displayStatus()
+const { currentHeaderTitle, isCurrentPath } = headerTitle()
+const { displayType, displayTypeMixin } = displayStatus()
 
 /* -- function -- */
 
@@ -38,6 +38,7 @@ const { displayTypeMixin } = displayStatus()
   justify-content: space-between;
 
   padding: v-bind("displayTypeMixin({ sm: '1em 2em 1em 2em', lp: '0px 2em', pc: '0px 2em' })");
+  border-bottom: solid v-bind("displayType === 'sm' && !isCurrentPath('/') ? '1px' : '0px'") v-bind("colorStore.color.theme.complementaryDarken[2]");
 
   .left-contents {
     font-weight: bold;

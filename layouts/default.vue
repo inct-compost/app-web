@@ -29,7 +29,7 @@ useSensingDataStore()
 #default-layout {
   display: grid;
   grid-template-columns: 64px 1fr;
-  grid-template-rows: 56px 1fr;
+  grid-template-rows: 64px 1fr;
 
   position: relative;
   width: 100%;

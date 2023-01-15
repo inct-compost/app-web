@@ -28,8 +28,13 @@ export const headerTitle = () => {
     return headetTitleList.value.filter(headerTitle => headerTitle.path === useRoute().fullPath)[0]
   })
 
+  const isCurrentPath = (path: string) => {
+    return useRoute().fullPath === path
+  }
+
   return {
     headetTitleList,
-    currentHeaderTitle
+    currentHeaderTitle,
+    isCurrentPath
   }
 }

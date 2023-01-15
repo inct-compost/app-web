@@ -109,7 +109,7 @@ const compostLevel = computed(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 1rem;
 
   box-sizing: border-box;
   border-radius: 0.5em;
