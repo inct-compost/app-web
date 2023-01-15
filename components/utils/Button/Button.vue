@@ -2,7 +2,7 @@
   <button
     id="Button"
     :disabled="disabled"
-    :size="!isIcon && size"
+    :size="size"
     :fab="fab"
     :icon="isIcon"
     :outlined="outlined"
@@ -176,24 +176,6 @@ const click = () => {
     }
   }
 
-  &[icon = true] {
-    width: 40px;
-    height: 40px;
-
-    background-color: transparent;
-
-    &:hover::before {
-      border-radius: 25%;
-    }
-
-    .text {
-      height: calc(100% - 16px);
-
-      padding: 0px;
-      margin: 0px;
-    }
-  }
-
   &[outlined = true] {
     background-color: transparent;
 
@@ -230,6 +212,31 @@ const click = () => {
 
     &:hover::before {
       border-radius: 16px;
+    }
+  }
+
+  &[icon = true] {
+    width: 40px;
+    height: 40px;
+    padding: 0px;
+
+    background-color: transparent;
+    border-radius: 0.4em;
+
+    &:hover::before {
+      border-radius: 25%;
+    }
+
+    .text {
+      height: calc(100%);
+
+      padding: 0px;
+      margin: 0px;
+    }
+
+    &[size = "small"] {
+      width: 32px;
+      height: 32px;
     }
   }
 }

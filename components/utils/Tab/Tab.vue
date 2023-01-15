@@ -3,10 +3,12 @@
     <Button
       v-for="(name, index) in tabNames"
       :key="index"
-      color="transprerent"
+      :is-icon="index !== modelValue.index"
+      :color="colorStore.color.theme.background"
       :icon="name.icon"
       :icon-props="{
-        size: '20px'
+        size: '20px',
+        color: index !== modelValue.index ? colorStore.color.theme.background : null
       }"
       size="small"
       class="button"
@@ -18,12 +20,8 @@
           fontWeight: vModel.index === index ? 600 : 500
         }"
       >
-        {{ name.name }}
+        {{ index !== modelValue.index ? null : name.name }}
       </span>
-      <div
-        v-if="vModel.index === index"
-        class="select-bar"
-      />
     </Button>
   </div>
 </template>
@@ -79,16 +77,22 @@ const select = (index: number) => {
 
 <style lang="scss" scoped>
 #tab {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-around;
+  display: flex;
+  column-gap: 1rem;
 
+  z-index: 99;
+  position: absolute;
+  bottom: 64px;
+  left: 50%;
   width: auto;
-  margin-bottom: 2em;
+  margin-bottom: 0.5em;
+  padding: 0.4rem 1rem;
+
+  transform: translateX(-50%);
+  background-color: v-bind("colorStore.color.theme.text");
+  border-radius: 0.5rem;
 
   .button {
-    margin: 0px 1em;
-
     .tab-name{
       font-weight: 500;
     }

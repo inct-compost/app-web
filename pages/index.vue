@@ -28,6 +28,9 @@
     </div>
     <Button
       icon="dashboard"
+      :icon-props="{
+        fill: true
+      }"
       :color="colorStore.color.theme.text"
       to="/dashboard"
     >
