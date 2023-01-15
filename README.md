@@ -60,6 +60,6 @@ yarn preview
 ## ScreenShot
 | Home | Dashboard | Setting |
 | -- | -- | -- |
-| ![home-screenshot](https://github.com/inct-compost/app-web/blob/main/public/screenshots/home-screenshot.png?raw=true) | ![screenshots](https://github.com/inct-compost/app-web/blob/main/public/screenshots/dashboard-screenshot.png?raw=true) |
+| ![home-screenshot](https://firebasestorage.googleapis.com/v0/b/research2022-5j.appspot.com/o/screenShots%2Fhome-screenshot.png?alt=media&token=1698aa39-3712-40c9-b10d-78f30e3a6a0b) | ![dashboard-screenshots](https://firebasestorage.googleapis.com/v0/b/research2022-5j.appspot.com/o/screenShots%2Fdashboard-screenshot.png?alt=media&token=ca9df7b9-dbc2-46f6-b9fd-70f835b63314) |
 
 ----
