@@ -53,6 +53,7 @@ const signInOut = () => {
   align-items: center;
   justify-content: center;
 
+  width: fit-content;
   height: 40px;
 
   font-size: 14px;

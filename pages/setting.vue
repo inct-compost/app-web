@@ -2,6 +2,11 @@
   <div id="setting">
     <SignInButton />
     <ColorModeButton />
+    <Button
+      is-icon
+      icon="refresh"
+      @click="reload()"
+    />
   </div>
 </template>
 
@@ -15,6 +20,9 @@
 /* -- variable(ref, reactive, computed) -- */
 
 /* -- function -- */
+const reload = () => {
+  window.location.reload()
+}
 
 /* -- watch -- */
 
@@ -27,6 +35,7 @@ definePageMeta({
 
 <style lang="scss" scoped>
 #setting {
-
+  display: flex;
+  flex-flow: column;
 }
 </style>
