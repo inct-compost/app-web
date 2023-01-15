@@ -1,13 +1,12 @@
 <template>
   <div id="chart">
-    <div class="title">
-      <Icon
-        :icon="titleIcon"
-        :color="colorStore.color.theme.subText"
-      />
-      <p v-text="chartTitle" />
-    </div>
-    <div id="echarts" />
+    <Card
+      :icon="titleIcon"
+      :title="chartTitle"
+      height="100%"
+    >
+      <div id="echarts" />
+    </Card>
   </div>
 </template>
 
@@ -60,6 +59,7 @@ interface IChartProps {
 
 /* -- store -- */
 const colorStore = useColorStore()
+const colorModeStore = useColorModeStore()
 
 /* -- props, emit -- */
 const props = withDefaults(defineProps<IChartProps>(), {
@@ -70,6 +70,8 @@ const props = withDefaults(defineProps<IChartProps>(), {
 /* -- variable(ref, reactive, computed) -- */
 const { sensingDataList, dataName } = toRefs(props)
 
+const theme = echartsTheme()
+
 const sensingDataListLength = computed(() => {
   return sensingDataList.value.length
 })
@@ -77,17 +79,22 @@ const sensingDataListLength = computed(() => {
 const option = computed(() => {
   const baseOption: ECOptionType = {
     grid: {
-      left: 40
+      top: 16,
+      bottom: 40,
+      left: 40,
+      right: 40
     },
     tooltip: {
       trigger: 'axis'
     },
-    legend: {},
+    legend: {
+      show: false
+    },
     xAxis: {
       type: 'category',
       boundaryGap: false,
       data: sensingDataList.value.map((sensingData) => {
-        return `${sensingData.month}-${sensingData.day}-${sensingData.hour}:${sensingData.minute}`
+        return `${sensingData.hour}:${sensingData.minute}`
       }),
       axisLabel: {
         formatter: '{value}'
@@ -134,9 +141,9 @@ const option = computed(() => {
             { type: 'min', name: 'Min' }
           ]
         },
-        /* markLine: {
+        markLine: {
           data: [ { type: 'average', name: 'Avg' } ]
-        }, */
+        },
         color: colorStore.color.green.default
       }
     ]
@@ -163,9 +170,9 @@ const option = computed(() => {
             { type: 'min', name: 'Min' }
           ]
         },
-        /* markLine: {
+        markLine: {
           data: [ { type: 'average', name: 'Avg' } ]
-        }, */
+        },
         color: colorStore.color.blue.default
       }
     ]
@@ -200,7 +207,8 @@ watch(sensingDataList, () => {
 
 /* -- life cycle -- */
 onMounted(() => {
-  const chart = echarts.init(document.getElementById('echarts')!, { renderer: 'svg' })
+  echarts.registerTheme(theme.themeName, theme.theme)
+  const chart = echarts.init(document.getElementById('echarts')!, colorModeStore.colorMode === 'dark' ? 'custom' : 'light', { renderer: 'svg' })
   chart.setOption(toRaw(option.value))
 
   useEventListener(window, 'resize', () => {
@@ -216,15 +224,12 @@ onMounted(() => {
   display: flex;
   flex-flow: column;
 
-  width: calc(640px - 2em - 3px);
-  max-width: calc(100% - 2em - 3px);
-  max-height: calc(640px - 2em - 3px);
-  padding: 1em;
+  width: 640px;
+  max-width: 100%;
+  max-height: 640px;
 
-  background-color: v-bind("colorStore.color.theme.card");
-  border: solid 1.5px v-bind("colorStore.color.theme.complementaryDarken[2]");
   border-radius: 8px;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1.5;
 
   .title {
     display: flex;

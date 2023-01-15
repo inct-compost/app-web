@@ -10,7 +10,6 @@
         size: '20px',
         color: index !== modelValue.index ? colorStore.color.theme.background : null
       }"
-      size="small"
       class="button"
       @click="select(index)"
     >
@@ -86,10 +85,10 @@ const select = (index: number) => {
   left: 50%;
   width: auto;
   margin-bottom: 0.5em;
-  padding: 0.4rem 1rem;
+  padding: 0.25rem 1.25rem;
 
   transform: translateX(-50%);
-  background-color: v-bind("colorStore.color.theme.text");
+  background-color: v-bind("colorStore.color.theme.text + 'd0'");
   border-radius: 0.5rem;
 
   .button {

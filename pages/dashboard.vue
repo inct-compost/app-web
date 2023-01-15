@@ -10,7 +10,7 @@
     >
       <BriefInfoCard type="temperature" :sensing-data-list="sensingDataList" />
       <Chart
-        chart-title="今日の温度チャート"
+        chart-title="今日の温度推移"
         :sensing-data-list="sensingDataList"
         data-name="temperature"
       />
@@ -18,13 +18,10 @@
         :sensing-data-list="sensingDataList"
         type="temperature"
       />
-      <Card class="buttons">
-        <Icon
-          icon="smart_button"
-          :style="{
-            marginRight: '1em'
-          }"
-        />
+      <Card
+        icon="smart_button"
+        title="その他のアクション"
+      >
         <Button
           icon="history"
         >
@@ -39,7 +36,7 @@
     >
       <BriefInfoCard type="waterAmount" :sensing-data-list="sensingDataList" />
       <Chart
-        chart-title="今日の水分量チャート"
+        chart-title="今日の水分量推移"
         :sensing-data-list="sensingDataList"
         data-name="waterAmount"
       />
@@ -47,16 +44,12 @@
         :sensing-data-list="sensingDataList"
         type="waterAmount"
       />
-      <Card class="buttons">
-        <Icon
-          icon="smart_button"
-          :style="{
-            marginRight: '1em'
-          }"
-        />
+      <Card
+        icon="smart_button"
+        title="その他のアクション"
+      >
         <Button
           icon="history"
-          :color="colorStore.color.blue.default"
         >
           過去のデータを見る
         </Button>
@@ -79,7 +72,6 @@ import { IconNameType } from '~/types/icon/IconNameType'
 
 /* -- store -- */
 const sensingDataStore = useSensingDataStore()
-const colorStore = useColorStore()
 
 /* -- props, emit -- */
 
@@ -123,26 +115,13 @@ definePageMeta({
 
 <style lang="scss" scoped>
 #dashboard {
-
-  padding-bottom: calc(32px + 0.5rem + 0.8rem + 1rem);
-
-  .buttons {
-    display: flex;
-    align-items: center;
-  }
+  padding-bottom: calc(40px + 0.5rem + 0.8rem + 1rem);
 
   &.sm {
     .temperature-tab, .waterAmount-tab {
       display: flex;
       flex-flow: column;
-
-      #chart {
-        margin-bottom: 1rem;
-      }
-
-      #dataTable {
-        margin-bottom: 1rem;
-      }
+      row-gap: 3rem;
     }
   }
 
@@ -152,6 +131,7 @@ definePageMeta({
       display: grid;
       grid-template-columns: auto minmax(640px, 1fr);
       grid-template-rows: auto auto;
+      row-gap: 3rem;
 
       #briefInfoCard {
         grid-row: 1;
@@ -168,13 +148,6 @@ definePageMeta({
       #dataTable {
         grid-row: 2;
         grid-column: 2;
-      }
-
-      .buttons {
-        grid-row: 1;
-        grid-column: 2;
-
-        margin-bottom: 1em;
       }
     }
   }

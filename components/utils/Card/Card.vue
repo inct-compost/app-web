@@ -1,12 +1,25 @@
 <template>
   <div id="card">
-    <slot />
+    <div class="title">
+      <Icon
+        v-if="icon"
+        :icon="icon"
+      />
+      <p v-text="title" />
+    </div>
+    <div class="contents">
+      <slot />
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { IconNameType } from '~/types/icon/IconNameType'
+
 /* -- type, interface -- */
 export interface ICardProps {
+  title: string
+  icon?: IconNameType
   width: string
   height: string
   backgroundColor?: string
@@ -22,6 +35,7 @@ const colorStore = useColorStore()
 
 /* -- props, emit -- */
 const props = withDefaults(defineProps<ICardProps>(), {
+  title: 'タイトル',
   width: 'auto',
   height: 'auto'
 })
@@ -40,13 +54,33 @@ defineEmits<ICardEmits>()
 
 <style lang="scss" scoped>
 #card {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  row-gap: 0.5rem;
+
   width: v-bind("props.width");
   height: v-bind("props.height");
-  max-width: calc(100% - 2em - 3px);
-  padding: 1em;
 
-  background-color: v-bind("props.backgroundColor ? props.backgroundColor : colorStore.color.theme.card");
-  border: solid 1.5px v-bind("props.borderColor ? props.borderColor : colorStore.color.theme.complementaryDarken[2]");
+  box-sizing: border-box;
+  background-color: v-bind("props.backgroundColor ? props.backgroundColor : colorStore.color.theme.background");
   border-radius: 8px;
+
+  .title {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.25rem;
+
+    color: v-bind("colorStore.color.theme.subText");
+
+    p {
+      margin: 0px;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+  }
+
+  .contents {
+    height: 100%;
+  }
 }
 </style>

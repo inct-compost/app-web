@@ -1,12 +1,14 @@
 <template>
   <div id="briefInfoCard">
     <Card
-      :style="{
-        marginBottom: '1em'
-      }"
+      icon="label"
+      :title="`現在の${type === 'temperature' ? '土壌温度' : '水分量'}`"
     >
-      <span>
-        現在は
+      <div class="briefInfoCard">
+        <Icon
+          :icon="type === 'temperature' ? 'device_thermostat' : 'water_drop'"
+          size="32px"
+        />
         <span
           class="data-text"
           v-text="type === 'temperature' ? nowTemprature : nowWaterAmount"
@@ -15,9 +17,12 @@
           °C
         </span>
         &#xFF08;
-        <span class="binary-difference" v-text="type === 'temperature' ? temperatureBinaryDifference : waterAmountBinaryDifference" />
+        <span
+          class="binary-difference"
+          v-text="type === 'temperature' ? temperatureBinaryDifference : waterAmountBinaryDifference"
+        />
         &#65289;
-      </span>
+      </div>
     </Card>
   </div>
 </template>
@@ -82,7 +87,16 @@ const waterAmountBinaryDifference = computed(() => {
 <style lang="scss" scoped>
 #briefInfoCard {
   width: 640px;
-  max-width: calc(100%);
+  max-width: 100%;
+
+  .briefInfoCard {
+    display: flex;
+    align-items: flex-end;
+
+    #Icon {
+      margin-right: 0.5rem;
+    }
+  }
 
   .data-text {
     margin: 0px 0.25em;

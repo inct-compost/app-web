@@ -1,13 +1,11 @@
 <template>
   <div id="dataTable">
-    <Card class="dataTable-wrapper" height="calc(100% - 2rem - 3px)">
-      <div class="title">
-        <Icon
-          icon="table_chart"
-          :color="colorStore.color.theme.subText"
-        />
-        <p>データテーブル</p>
-      </div>
+    <Card
+      icon="table_chart"
+      title="データ一覧"
+      class="dataTable-wrapper"
+      height="calc(100% - 2rem - 3px)"
+    >
       <div class="content">
         <table>
           <thead>
@@ -129,6 +127,7 @@ const calculateBinaryDifference = (index: number) => {
 
     .content {
       overflow-y: auto;
+      height: 100%;
     }
 
     table {
@@ -144,7 +143,7 @@ const calculateBinaryDifference = (index: number) => {
         top: 0;
         left: 0;
         z-index: 1;
-        background-color: v-bind("colorStore.color.theme.card");
+        background-color: v-bind("colorStore.color.theme.background");
       }
 
       th {
@@ -152,8 +151,9 @@ const calculateBinaryDifference = (index: number) => {
         top: 0;
         left: 0;
         z-index: 1;
-        padding: 1rem 0px;
+        padding: 0.5rem 0px;
 
+        box-sizing: border-box;
         color: v-bind("colorStore.color.theme.subText");
         text-align: start;
         border-bottom: solid 1px v-bind("colorStore.color.theme.complementaryDarken[2]");
