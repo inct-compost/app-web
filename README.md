@@ -1,7 +1,5 @@
 # <div style="text-align: center;">inct-compost/app-web</div>
-<!-- <p align="center">
-  <img src="/static/icon.png"  width="256" height="256" alt="nuxt-firebase logo">
-</p> -->
+![featurePreview](https://user-images.githubusercontent.com/49429291/214549906-bd212afc-b6b2-421d-be41-6537e0ed46b4.png)
 
 ## Description
 IoTコンポスト向けハードウェア管理アプリケーション。コンポスト内の状態を監視することができたり、コンポストの遠隔操作を行うことができる。<br>
