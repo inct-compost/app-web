@@ -30,6 +30,7 @@
     "@storybook/vue3": "^6.5.13",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
+    "@vite-pwa/nuxt": "^0.0.2",
     "@vueuse/core": "^9.5.0",
     "@vueuse/nuxt": "^9.5.0",
     "babel-loader": "^8.3.0",

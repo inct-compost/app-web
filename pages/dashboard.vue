@@ -115,9 +115,10 @@ definePageMeta({
 
 <style lang="scss" scoped>
 #dashboard {
-  padding-bottom: calc(40px + 0.5rem + 0.8rem + 1rem);
 
   &.sm {
+    padding-bottom: calc(40px + 0.5rem + 0.8rem + 1rem);
+
     .temperature-tab, .waterAmount-tab {
       display: flex;
       flex-flow: column;
@@ -132,6 +133,7 @@ definePageMeta({
       grid-template-columns: auto minmax(640px, 1fr);
       grid-template-rows: auto auto;
       row-gap: 3rem;
+      column-gap: 1rem;
 
       #briefInfoCard {
         grid-row: 1;

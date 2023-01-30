@@ -1,5 +1,3 @@
-import { VitePWA } from 'vite-plugin-pwa'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
@@ -70,6 +68,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     [
       '@pinia/nuxt',
@@ -81,112 +80,109 @@ export default defineNuxtConfig({
     ]
   ],
 
-  vite: {
-    plugins: [
-      VitePWA({
-        registerType: 'autoUpdate',
-        injectRegister: 'auto',
-        devOptions: {
-          enabled: false
+  pwa: {
+    registerWebManifestInRouteRules: true,
+    registerType: 'autoUpdate',
+    injectRegister: 'auto',
+    devOptions: {
+      enabled: false
+    },
+    workbox: {
+      navigateFallback: '/',
+      globPatterns: [ '**/*.{js,mjs,css,html,ico,png,svg,woff2}' ],
+      globIgnores: [ '**/sw*', '**/workbox-*', '**/manifest.webmanifest' ],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'google-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
+            },
+            cacheableResponse: {
+              statuses: [ 0, 200 ]
+            }
+          }
         },
-        workbox: {
-          navigateFallback: '/',
-          globPatterns: [ '**/*.{js,mjs,css,html,ico,png,svg,woff2}' ],
-          globIgnores: [ '**/sw*', '**/workbox-*', '**/manifest.webmanifest' ],
-          runtimeCaching: [
-            {
-              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'google-fonts-cache',
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
-                },
-                cacheableResponse: {
-                  statuses: [ 0, 200 ]
-                }
-              }
+        {
+          urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'gstatic-fonts-cache',
+            expiration: {
+              maxEntries: 10,
+              maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
             },
-            {
-              urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
-              handler: 'CacheFirst',
-              options: {
-                cacheName: 'gstatic-fonts-cache',
-                expiration: {
-                  maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
-                },
-                cacheableResponse: {
-                  statuses: [ 0, 200 ]
-                }
-              }
+            cacheableResponse: {
+              statuses: [ 0, 200 ]
             }
-          ]
-        },
-        includeAssets: [],
-        manifest: {
-          lang: 'ja',
-          name: 'IoT Compost Toilet',
-          short_name: 'ComToile',
-          description: 'IoTを活用したコンポストトイレの管理用アプリケーションです。コンポストの状態をどこでも分かりやすく確認することができます！',
-          start_url: '/',
-          display: 'standalone',
-          background_color: '#f6f8fa',
-          theme_color: '#f6f8fa',
-          icons: [
-            {
-              src: '/icons/icon-72x72.png',
-              type: 'image/png',
-              sizes: '72x72',
-              purpose: 'any'
-            },
-            {
-              src: '/icons/icon-128x128.png',
-              type: 'image/png',
-              sizes: '128x128',
-              purpose: 'any'
-            },
-            {
-              src: '/icons/icon-144x144.png',
-              type: 'image/png',
-              sizes: '144x144',
-              purpose: 'any'
-            },
-            {
-              src: '/icons/icon-152x152.png',
-              type: 'image/png',
-              sizes: '152x152',
-              purpose: 'any'
-            },
-            {
-              src: '/icons/icon-192x192.png',
-              type: 'image/png',
-              sizes: '192x192',
-              purpose: 'any'
-            },
-            {
-              src: '/icons/icon-384x384.png',
-              type: 'image/png',
-              sizes: '384x384',
-              purpose: 'any'
-            },
-            {
-              src: '/icons/icon-512x512.png',
-              type: 'image/png',
-              sizes: '512x512',
-              purpose: 'any'
-            }
-          ],
-          screenshots: [
-            {
-              src: '/screenshots/dashboard-screenshot.png',
-              sizes: '512x962',
-              type: 'image/gif'
-            }
-          ]
+          }
         }
-      })
-    ]
+      ]
+    },
+    includeAssets: [],
+    manifest: {
+      lang: 'ja',
+      name: 'IoT Compost Toilet',
+      short_name: 'ComToile',
+      description: 'IoTを活用したコンポストトイレの管理用アプリケーションです。コンポストの状態をどこでも分かりやすく確認することができます！',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#f6f8fa',
+      theme_color: '#f6f8fa',
+      icons: [
+        {
+          src: '/icons/icon-72x72.png',
+          type: 'image/png',
+          sizes: '72x72',
+          purpose: 'any'
+        },
+        {
+          src: '/icons/icon-128x128.png',
+          type: 'image/png',
+          sizes: '128x128',
+          purpose: 'any'
+        },
+        {
+          src: '/icons/icon-144x144.png',
+          type: 'image/png',
+          sizes: '144x144',
+          purpose: 'any'
+        },
+        {
+          src: '/icons/icon-152x152.png',
+          type: 'image/png',
+          sizes: '152x152',
+          purpose: 'any'
+        },
+        {
+          src: '/icons/icon-192x192.png',
+          type: 'image/png',
+          sizes: '192x192',
+          purpose: 'any'
+        },
+        {
+          src: '/icons/icon-384x384.png',
+          type: 'image/png',
+          sizes: '384x384',
+          purpose: 'any'
+        },
+        {
+          src: '/icons/icon-512x512.png',
+          type: 'image/png',
+          sizes: '512x512',
+          purpose: 'any'
+        }
+      ],
+      screenshots: [
+        {
+          src: '/screenshots/dashboard-screenshot.png',
+          sizes: '512x962',
+          type: 'image/gif'
+        }
+      ]
+    }
   }
 })

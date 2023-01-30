@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <VitePwaManifest />
     <Meta name="theme-color" :content="colorStore.color.theme.background" />
     <NuxtLoadingIndicator />
     <NuxtLayout :name="layout">
@@ -9,9 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import { registerSW } from 'virtual:pwa-register'
-
-registerSW()
 /* -- type, interface -- */
 
 /* -- store -- */

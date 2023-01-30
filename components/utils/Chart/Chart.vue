@@ -224,9 +224,9 @@ onMounted(() => {
   display: flex;
   flex-flow: column;
 
-  width: 640px;
+  width: 800px;
   max-width: 100%;
-  max-height: 640px;
+  max-height: 800px;
 
   border-radius: 8px;
   aspect-ratio: 1/1.5;
